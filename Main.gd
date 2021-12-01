@@ -4,6 +4,7 @@ const MIN_SIZE := Vector2(1280,720)
 
 onready var game_dropdown_menu = find_node("GameDropDown")
 onready var gametype_dropdown_menu = find_node("GameTypeOptions")
+onready var number_of_players_menu = find_node("NumberOfPlayers")
 
 var event_name : String = ""
 var shorthand_name : String = ""
@@ -32,7 +33,19 @@ func _on_GameDropDown_item_selected(index: int) -> void:
 
 
 func _on_GameTypeOptions_item_selected(index: int) -> void:
+	### INDEX REFERENCE
+	### 0: Singles
+	### 1: Doubles
+	### 2: Squad Strike
+	### 3: Frindlies
 	game_type = gametype_dropdown_menu.get_item_text(index)
+	match index:
+		0:
+			_on_NumberOfPlayers_item_selected(2)
+			number_of_players_menu.select(2)
+		1:
+			_on_NumberOfPlayers_item_selected(4)
+			number_of_players_menu.select(4)
 
 
 func _on_PlayerCharacterOverride_text_changed(new_text: String, extra_arg_0: String) -> void:
@@ -48,6 +61,7 @@ func _on_NumberOfPlayers_item_selected(index: int) -> void:
 	# Determine how many PlayerLines to show. If modulate is 0, that means
 	# we have all 4 slots, but don't need a new line so we subtract 1.
 	
+# warning-ignore:integer_division
 	var line_count = index / 4
 	var modulate_line = index % 4
 	print("modulate_line = %s" % modulate_line)

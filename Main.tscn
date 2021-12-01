@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://scripts/GameDropDown.gd" type="Script" id=2]
 [ext_resource path="res://scripts/NumberOfPlayers.gd" type="Script" id=3]
 [ext_resource path="res://scripts/PlayerInfo.gd" type="Script" id=4]
 [ext_resource path="res://scripts/PlayerLine.gd" type="Script" id=5]
+[ext_resource path="res://addons/obs_websocket_gd/obs_ui.tscn" type="PackedScene" id=7]
 
 [node name="Main" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -1103,6 +1104,17 @@ margin_left = 1012.0
 margin_right = 1262.0
 rect_min_size = Vector2( 50, 0 )
 size_flags_horizontal = 3
+
+[node name="OBS" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="ObsUi" parent="TabContainer/OBS" instance=ExtResource( 7 )]
 
 [node name="Container" type="Control" parent="."]
 visible = false
