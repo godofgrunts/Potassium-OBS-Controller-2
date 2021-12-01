@@ -2,7 +2,7 @@ extends HBoxContainer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	SignalManager.connect("reset_player_lines", self, "reset")
+	var _connect = SignalManager.connect("reset_player_lines", self, "reset")
 	reset()
 
 func show_players(index : int, line : int) -> void:

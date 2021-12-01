@@ -12,7 +12,7 @@ config_version=4
 
 config/name="Potassium Controller"
 run/main_scene="res://Main.tscn"
-config/icon="res://obs_godot_icon.png"
+config/icon="res://icon.png"
 
 [autoload]
 
