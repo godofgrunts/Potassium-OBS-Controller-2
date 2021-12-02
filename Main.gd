@@ -6,6 +6,7 @@ onready var game_dropdown_menu = find_node("GameDropDown")
 onready var gametype_dropdown_menu = find_node("GameTypeOptions")
 onready var number_of_players_menu = find_node("NumberOfPlayers")
 
+var obs_websocket : Node
 var event_name : String = ""
 var shorthand_name : String = ""
 var round_name : String = ""
@@ -14,7 +15,14 @@ var game_type : String = "Singles"
 
 func _ready() -> void:
 	OS.min_window_size = MIN_SIZE
-
+	obs_websocket = load("res://addons/obs_websocket_gd/obs_websocket.tscn").instance()
+	add_child(obs_websocket)
+	obs_websocket.connect("obs_updated", self, "_on_obs_updated")
+	obs_websocket.connect("obs_connected", self, "_on_obs_connected")
+	obs_websocket.connect("obs_scene_list_returned", self, "_on_obs_scene_list_returned")
+	obs_websocket.connect("obs_error", self, "_on_obs_error")
+	_on_NumberOfPlayers_item_selected(2)
+	
 
 func _on_EventNameInput_text_changed(new_text: String) -> void:
 	event_name = new_text 
@@ -30,6 +38,7 @@ func _on_RoundInput_text_changed(new_text: String) -> void:
 
 func _on_GameDropDown_item_selected(index: int) -> void:
 	game_name = game_dropdown_menu.get_item_text(index)
+	SignalManager.emit_signal("game_changed", game_name)
 
 
 func _on_GameTypeOptions_item_selected(index: int) -> void:
@@ -38,6 +47,7 @@ func _on_GameTypeOptions_item_selected(index: int) -> void:
 	### 1: Doubles
 	### 2: Squad Strike
 	### 3: Frindlies
+	### 4: Casuals
 	game_type = gametype_dropdown_menu.get_item_text(index)
 	match index:
 		0:

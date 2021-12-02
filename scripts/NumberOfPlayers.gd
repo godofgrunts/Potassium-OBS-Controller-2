@@ -11,3 +11,4 @@ func _ready() -> void:
 	self.add_item("", 0)
 	for i in range(8):
 		self.add_item(str(i + 1), i + 1)
+	self.select(2)

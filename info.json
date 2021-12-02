@@ -1,0 +1,510 @@
+{ 
+	"games":[
+		"64",
+		"Melee",
+		"Brawl",
+		"Wii U",
+		"Ultimate"
+	],
+	"characters":[
+		{"name":"Alph", "game":[
+			"Brawl",
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Banjo and Kazooie","game":[
+			"Ultimate"
+			]
+		},
+		{"name":"Bayonetta","game":[
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Bowser","game":[
+			"Melee",
+			"Brawl",
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Bowser Jr.","game":[
+			"Brawl",
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Byleth","game":[
+			"Ultimate"
+			]
+		},
+		{"name":"Captain Falcon","game":[
+			"64",
+			"Melee",
+			"Brawl",
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Charizard","game":[
+			"Brawl"
+			]
+		},
+		{"name":"Chrom","game":[
+			"Ultimate"
+			]
+		},
+		{"name":"Cloud","game":[
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Corrin","game":[
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Dark Pit","game":[
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Daisy","game":[
+			"Ultimate"
+			]
+		},
+		{"name":"Dark Samus","game":[
+			"Ultimate"
+			]
+		},
+		{"name":"Diddy Kong","game":[
+			"Brawl",
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Donkey Kong","game":[
+			"64",
+			"Melee",
+			"Brawl",
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Dr. Mario","game":[
+			"Melee",
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Duck Hunt","game":[
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Falco","game":[
+			"Melee",
+			"Brawl",
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Fox","game":[
+			"64",
+			"Melee",
+			"Brawl",
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Ganondorf","game":[
+			"Melee",
+			"Brawl",
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Greninja","game":[
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Hero","game":[
+			"Ultimate"
+			]
+		},
+		{"name":"Ice Climbers","game":[
+			"Melee",
+			"Brawl",
+			"Ultimate"
+			]
+		},
+		{"name":"Ike","game":[
+			"Brawl",
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Incineroar","game":[
+			"Ultimate"
+			]
+		},
+		{"name":"Inkling","game":[
+			"Ultimate"
+			]
+		},
+		{"name":"Isabelle","game":[
+			"Ultimate"
+			]
+		},
+		{"name":"Jigglypuff","game":[
+			"64",
+			"Melee",
+			"Brawl",
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Joker","game":[
+			"Ultimate"
+			]
+		},
+		{"name":"Kazuya Mishima","game":[
+			{"name":"Tekken"},
+			"Ultimate"
+			]
+		},
+		{"name":"Ken","game":[
+			{"name":"Street Fighter"},
+			{"name":"Street Fighter II"},
+			"Ultimate"
+			]
+		},
+		{"name":"King Dedede","game":[
+			"Brawl",
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"King K. Rool","game":[
+			"Ultimate"
+			]
+		},
+		{"name":"Kirby","game":[
+			"64",
+			"Melee",
+			"Brawl",
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Link","game":[
+			"64",
+			"Melee",
+			"Brawl",
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Little Mac","game":[
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Lucario","game":[
+			"Brawl",
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Lucas","game":[
+			"Brawl",
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Lucina","game":[
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Luigi","game":[
+			"64",
+			"Melee",
+			"Brawl",
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Mario","game":[
+			"64",
+			"Melee",
+			"Brawl",
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Marth","game":[
+			"Melee",
+			"Brawl",
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Mega Man","game":[
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Meta Knight","game":[
+			"Brawl",
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Mewtwo","game":[
+			"Melee",
+			"Brawl",
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Mii Brawler","game":[
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Mii Gunner","game":[
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Mii Swordfighter","game":[
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Min Min","game":[
+			"Ultimate"
+			]
+		},
+		{"name":"Mr. Game & Watch","game":[
+			"Melee",
+			"Brawl",
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Ness","game":[
+			"64",
+			"Melee",
+			"Brawl",
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Olimar","game":[
+			"Brawl",
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Pac-Man","game":[
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Palutena","game":[
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Peach","game":[
+			"Melee",
+			"Brawl",
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Pichu","game":[
+			"Melee",
+			"Ultimate"
+			]
+		},
+		{"name":"Pikachu","game":[
+			"64",
+			"Melee",
+			"Brawl",
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Piranha Plant","game":[
+			"Ultimate"
+			]
+		},
+		{"name":"Pit","game":[
+			"Brawl",
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Pokemon Trainer","game":[
+			"Brawl",
+			"Ultimate"
+			]
+		},			
+		{"name":"Pyra/Mythra","game":[
+			"Ultimate"
+			]
+		},
+		{"name":"Richter","game":[
+			"Ultimate"
+			]
+		},
+		{"name":"Ridley","game":[
+			"Ultimate"
+			]
+		},
+		{"name":"R.O.B.","game":[
+			"Brawl",
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Robin","game":[
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Rosalina and Luma","game":[
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Roy","game":[
+			"Melee",
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Ryu","game":[
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Samus","game":[
+			"64",
+			"Melee",
+			"Brawl",
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Sephiroth","game":[
+			"Ultimate"
+			]
+		},
+		{"name":"Sheik","game":[
+			"Melee",
+			"Brawl",
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Shulk","game":[
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Simon","game":[
+			"Ultimate"
+			]
+		},
+		{"name":"Snake","game":[
+			"Brawl",
+			"Ultimate"
+			]
+		},
+		{"name":"Sonic","game":[
+			"Brawl",
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Sora","game":[
+			"Ultimate"
+			]
+		},
+		{"name":"Steve","game":[
+			"Ultimate"
+			]
+		},
+		{"name":"Terry","game":[
+			"Ultimate"
+			]
+		},
+		{"name":"Toon Link","game":[
+			"Brawl",
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Villager","game":[
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Wario","game":[
+			"Brawl",
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Wii Fit Trainer","game":[
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Wolf","game":[
+			"Brawl",
+			"Ultimate"
+			]
+		},
+		{"name":"Yoshi","game":[
+			"64",
+			"Melee",
+			"Brawl",
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Young Link","game":[
+			"Melee",
+			"Ultimate"
+			]
+		},
+		{"name":"Zelda","game":[
+			"Melee",
+			"Brawl",
+			"Wii U",
+			"Ultimate"
+			]
+		},
+		{"name":"Zero Suit Samus","game":[
+			"Brawl",
+			"Wii U",
+			"Ultimate"
+			]
+		}
+	],
+	"modes":[
+		"Singles",
+		"Doubles",
+		"Squad Strike",
+		"Friendlies",
+		"Casuals"
+		]
+}
+
