@@ -20,8 +20,13 @@ func _ready() -> void:
 	obs_websocket.connect("obs_updated", self, "_on_obs_updated")
 	obs_websocket.connect("obs_connected", self, "_on_obs_connected")
 	obs_websocket.connect("obs_scene_list_returned", self, "_on_obs_scene_list_returned")
-	obs_websocket.connect("obs_error", self, "_on_obs_error")
+	SignalManager.connect("player_name_changed", self, "_on_player_name_changed")
+	SignalManager.connect("player_social_changed", self, "_on_player_social_changed")
+	SignalManager.connect("player_pronoun_changed", self, "_on_player_pronoun_changed")
+	SignalManager.connect("player_character_changed", self, "_on_player_character_changed")
+	SignalManager.connect("player_character_override_changed", self, "_on_player_character_override_changed")
 	_on_NumberOfPlayers_item_selected(2)
+	SignalManager.emit_signal("main_ready", $ObsWebsocket)
 	
 
 func _on_EventNameInput_text_changed(new_text: String) -> void:
@@ -57,12 +62,6 @@ func _on_GameTypeOptions_item_selected(index: int) -> void:
 			_on_NumberOfPlayers_item_selected(4)
 			number_of_players_menu.select(4)
 
-
-func _on_PlayerCharacterOverride_text_changed(new_text: String, extra_arg_0: String) -> void:
-	print(new_text)
-	print(extra_arg_0)
-
-
 func _on_NumberOfPlayers_item_selected(index: int) -> void:
 	SignalManager.emit_signal("reset_player_lines")
 	if index == 0:
@@ -89,3 +88,54 @@ func _on_NumberOfPlayers_item_selected(index: int) -> void:
 				k = k - 4
 			line.show_players(k, i)
 			
+
+func _on_player_name_changed(source, text) -> void:
+	var source_name = source + "Name"
+	obs_websocket.send_command("SetSourceSettings", {"sourceName":source_name, "sourceSettings":{"text":text}})
+
+func _on_player_social_changed(source, text) -> void:
+	var source_name = source + "Social"
+	obs_websocket.send_command("SetSourceSettings", {"sourceName":source_name, "sourceSettings":{"text":text}})
+
+func _on_player_pronoun_changed(source, text) -> void:
+	var source_name = source + "Pronouns"
+	obs_websocket.send_command("SetSourceSettings", {"sourceName":source_name, "sourceSettings":{"text":text}})
+
+func _on_player_character_changed(source, text) -> void:
+	var source_name = source + "Character"
+	obs_websocket.send_command("SetSourceSettings", {"sourceName":source_name, "sourceSettings":{"text":text}})
+
+func _on_player_character_override_changed(source, text) -> void:
+	var source_name = source + "Character"
+	obs_websocket.send_command("SetSourceSettings", {"sourceName":source_name, "sourceSettings":{"text":text}})
+
+func _on_obs_updated(data) -> void:
+	pass
+func _on_obs_connected() -> void:
+	print("connected")
+func _on_obs_scene_list_returned() -> void:
+	pass
+
+
+
+
+###############################################################################
+# Testing Area                                                                #
+###############################################################################
+
+var command : String = "StartRecording"
+var command_dict : = {}
+
+func _on_temp_Button_pressed():
+	obs_websocket.send_command(command, command_dict)
+
+
+func _on_SendCommandInfo_text_entered(new_text):
+	command = new_text
+	print(command)
+
+
+
+func _on_OptionalLines_text_entered(new_text):
+	command_dict = parse_json(new_text)
+	print(command_dict)

@@ -46,14 +46,27 @@ onready var engine_version: Dictionary = Engine.get_version_info()
 ###############################################################################
 
 func _ready():
-	obs_websocket = load("res://addons/obs_websocket_gd/obs_websocket.tscn").instance()
-	add_child(obs_websocket)
+	
+	SignalManager.connect("main_ready", self, "_on_main_ready")
+	#obs_websocket = load("res://addons/obs_websocket_gd/obs_websocket.tscn").instance()
+	#add_child(obs_websocket)
+	#obs_websocket.connect("obs_updated", self, "_on_obs_updated")
+	#obs_websocket.connect("obs_connected", self, "_on_obs_connected")
+	#obs_websocket.connect("obs_scene_list_returned", self, "_on_obs_scene_list_returned")
+	
+	# Setup connection values from script
+
+	
+	
+	
+	
+
+func _on_main_ready(obs_websocket_scene) -> void:
+	obs_websocket = obs_websocket_scene
 	obs_websocket.connect("obs_updated", self, "_on_obs_updated")
 	obs_websocket.connect("obs_connected", self, "_on_obs_connected")
 	obs_websocket.connect("obs_scene_list_returned", self, "_on_obs_scene_list_returned")
-	obs_websocket.connect("obs_error", self, "_on_obs_error")
 	
-	# Setup connection values from script
 	host_value.text = obs_websocket.host
 	port_value.text = obs_websocket.port
 	password_value.text = obs_websocket.password
@@ -70,10 +83,6 @@ func _ready():
 	
 	record.text = START_RECORDING
 	record.connect("pressed", self, "_on_record_pressed")
-	
-	
-	
-	
 
 func _exit_tree() -> void:
 	obs_websocket.free()
@@ -142,6 +151,30 @@ func _on_obs_updated(obs_data: Dictionary) -> void:
 			"StreamingStopped":
 				stream.text = START_STREAMING
 				is_streaming = false
+
+###############################################################################
+# Error Handling example:                                                     #
+# The client is expected to handle errors.                                    #
+# obs_websocket.gd emits "obs_updated" which can contain error information    #
+# so that obs_ui.gd can decide how to handle it.                              #
+###############################################################################
+
+	if obs_data.has("error"):
+		var error_popup = AcceptDialog.new()
+		match obs_data["error"]:
+			"Authentication Failed.":
+				obs_websocket.break_connection()
+				connect_button.text = CONNECT_TO_OBS
+				error_popup.dialog_text = "Unable to Authenticate to the OBS websocket server.\n\nIs your password correct?"
+				is_connection_established = false
+			"Connection Error.":
+				obs_websocket.break_connection()
+				connect_button.text = CONNECT_TO_OBS
+				error_popup.dialog_text = "Unable to connect to OBS.\n\nIs OBS running and OBS Websocket installed?"
+				is_connection_established = false
+		self.add_child(error_popup)
+		error_popup.popup_centered()
+		
 	print(obs_data)
 
 func _on_obs_connected() -> void:
@@ -153,6 +186,7 @@ func _on_refresh_data_pressed() -> void:
 	obs_websocket.get_scene_list()
 
 func _on_obs_scene_list_returned(data) -> void:
+	print(data)
 	current_scene = data.current_scene
 	
 	scene_data.clear()
@@ -221,28 +255,3 @@ func _create_source_button(button_name: String, button_render: bool) -> void:
 ###############################################################################
 # Public functions                                                            #
 ###############################################################################
-
-
-
-###############################################################################
-# Error Handling example                                                      #
-# The client is expected to handle errors.                                    #
-# As such obs_websocket.gd emits a signal called "obs_error" with             #
-# the error information so that obs_ui.gd can decide how to handle it.        #
-###############################################################################
-
-func _on_obs_error(error_msg) -> void:
-	var error_popup = AcceptDialog.new()
-	match error_msg:
-		"Authentication Failed.":
-			obs_websocket.break_connection()
-			connect_button.text = CONNECT_TO_OBS
-			error_popup.dialog_text = "Unable to Authenticate to the OBS websocket server.\n\nIs your password correct?"
-			is_connection_established = false
-		"Connection Error.":
-			obs_websocket.break_connection()
-			connect_button.text = CONNECT_TO_OBS
-			error_popup.dialog_text = "Unable to connect to OBS.\n\nIs OBS running and OBS Websocket installed?"
-			is_connection_established = false
-	self.add_child(error_popup)
-	error_popup.popup_centered()

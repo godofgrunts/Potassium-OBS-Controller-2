@@ -17,7 +17,7 @@ func add_characters():
 			self.add_item(i["name"])
 
 func reset_dropdown():
-	for i in self.items:
+	for i in self.get_item_count():
 		self.remove_item(0)
 
 func populate():

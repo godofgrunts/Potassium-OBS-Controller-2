@@ -264,8 +264,7 @@ size_flags_horizontal = 3
 
 [node name="Player1" type="VBoxContainer" parent="TabContainer/Main/PanelContainer/VBoxContainer/PlayerLine1"]
 visible = false
-margin_left = 212.0
-margin_right = 412.0
+margin_right = 200.0
 margin_bottom = 204.0
 script = ExtResource( 4 )
 
@@ -1125,6 +1124,40 @@ margin_bottom = -4.0
 
 [node name="ObsUi" parent="TabContainer/OBS" instance=ExtResource( 7 )]
 
+[node name="Testing" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Button" type="Button" parent="TabContainer/Testing"]
+margin_left = 498.0
+margin_top = 589.0
+margin_right = 705.0
+margin_bottom = 676.0
+text = "Change P1 to \"Frank\""
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SendCommandInfo" type="LineEdit" parent="TabContainer/Testing"]
+margin_left = 305.0
+margin_top = 277.0
+margin_right = 904.0
+margin_bottom = 349.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionalLines" type="LineEdit" parent="TabContainer/Testing"]
+margin_left = 308.0
+margin_top = 393.0
+margin_right = 907.0
+margin_bottom = 468.0
+
 [node name="Container" type="Control" parent="."]
 visible = false
 anchor_right = 1.0
@@ -1143,18 +1176,13 @@ dialog_text = "You cannot have 0 players."
 [connection signal="item_selected" from="TabContainer/Main/PanelContainer/VBoxContainer/SecondLine/PlayerCount/NumberOfPlayers" to="." method="_on_NumberOfPlayers_item_selected"]
 [connection signal="item_selected" from="TabContainer/Main/PanelContainer/VBoxContainer/SecondLine/GameType/GameTypeOptions" to="." method="_on_GameTypeOptions_item_selected"]
 [connection signal="toggled" from="TabContainer/Main/PanelContainer/VBoxContainer/PlayerLine1/Player1/Override/CheckBox" to="TabContainer/Main/PanelContainer/VBoxContainer/PlayerLine1/Player1" method="_on_CheckBox_toggled"]
-[connection signal="text_changed" from="TabContainer/Main/PanelContainer/VBoxContainer/PlayerLine1/Player1/PlayerCharacterOverride" to="." method="_on_PlayerCharacterOverride_text_changed" binds= [ "Player1" ]]
 [connection signal="toggled" from="TabContainer/Main/PanelContainer/VBoxContainer/PlayerLine1/Player2/Override/CheckBox" to="TabContainer/Main/PanelContainer/VBoxContainer/PlayerLine1/Player2" method="_on_CheckBox_toggled"]
-[connection signal="text_changed" from="TabContainer/Main/PanelContainer/VBoxContainer/PlayerLine1/Player2/PlayerCharacterOverride" to="." method="_on_PlayerCharacterOverride_text_changed" binds= [ "Player2" ]]
 [connection signal="toggled" from="TabContainer/Main/PanelContainer/VBoxContainer/PlayerLine1/Player3/Override/CheckBox" to="TabContainer/Main/PanelContainer/VBoxContainer/PlayerLine1/Player3" method="_on_CheckBox_toggled"]
-[connection signal="text_changed" from="TabContainer/Main/PanelContainer/VBoxContainer/PlayerLine1/Player3/PlayerCharacterOverride" to="." method="_on_PlayerCharacterOverride_text_changed" binds= [ "Player3" ]]
 [connection signal="toggled" from="TabContainer/Main/PanelContainer/VBoxContainer/PlayerLine1/Player4/Override/CheckBox" to="TabContainer/Main/PanelContainer/VBoxContainer/PlayerLine1/Player4" method="_on_CheckBox_toggled"]
-[connection signal="text_changed" from="TabContainer/Main/PanelContainer/VBoxContainer/PlayerLine1/Player4/PlayerCharacterOverride" to="." method="_on_PlayerCharacterOverride_text_changed" binds= [ "Player4" ]]
 [connection signal="toggled" from="TabContainer/Main/PanelContainer/VBoxContainer/PlayerLine2/Player1/Override/CheckBox" to="TabContainer/Main/PanelContainer/VBoxContainer/PlayerLine2/Player1" method="_on_CheckBox_toggled"]
-[connection signal="text_changed" from="TabContainer/Main/PanelContainer/VBoxContainer/PlayerLine2/Player1/PlayerCharacterOverride" to="." method="_on_PlayerCharacterOverride_text_changed" binds= [ "Player5" ]]
 [connection signal="toggled" from="TabContainer/Main/PanelContainer/VBoxContainer/PlayerLine2/Player2/Override/CheckBox" to="TabContainer/Main/PanelContainer/VBoxContainer/PlayerLine2/Player2" method="_on_CheckBox_toggled"]
-[connection signal="text_changed" from="TabContainer/Main/PanelContainer/VBoxContainer/PlayerLine2/Player2/PlayerCharacterOverride" to="." method="_on_PlayerCharacterOverride_text_changed" binds= [ "Player6" ]]
 [connection signal="toggled" from="TabContainer/Main/PanelContainer/VBoxContainer/PlayerLine2/Player3/Override/CheckBox" to="TabContainer/Main/PanelContainer/VBoxContainer/PlayerLine2/Player3" method="_on_CheckBox_toggled"]
-[connection signal="text_changed" from="TabContainer/Main/PanelContainer/VBoxContainer/PlayerLine2/Player3/PlayerCharacterOverride" to="." method="_on_PlayerCharacterOverride_text_changed" binds= [ "Player7" ]]
 [connection signal="toggled" from="TabContainer/Main/PanelContainer/VBoxContainer/PlayerLine2/Player4/Override/CheckBox" to="TabContainer/Main/PanelContainer/VBoxContainer/PlayerLine2/Player4" method="_on_CheckBox_toggled"]
-[connection signal="text_changed" from="TabContainer/Main/PanelContainer/VBoxContainer/PlayerLine2/Player4/PlayerCharacterOverride" to="." method="_on_PlayerCharacterOverride_text_changed" binds= [ "Player8" ]]
+[connection signal="pressed" from="TabContainer/Testing/Button" to="." method="_on_temp_Button_pressed"]
+[connection signal="text_entered" from="TabContainer/Testing/SendCommandInfo" to="." method="_on_SendCommandInfo_text_entered"]
+[connection signal="text_entered" from="TabContainer/Testing/OptionalLines" to="." method="_on_OptionalLines_text_entered"]
