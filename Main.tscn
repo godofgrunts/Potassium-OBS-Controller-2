@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://scripts/GameDropDown.gd" type="Script" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://scripts/PlayerLine.gd" type="Script" id=5]
 [ext_resource path="res://scripts/PlayerCharacter.gd" type="Script" id=6]
 [ext_resource path="res://addons/obs_websocket_gd/obs_ui.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scripts/BestOf.gd" type="Script" id=8]
+[ext_resource path="res://scripts/ScoreLine.gd" type="Script" id=9]
 
 [node name="Main" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -182,20 +184,20 @@ rect_min_size = Vector2( 0, 25 )
 [node name="SecondLine" type="HBoxContainer" parent="TabContainer/Main/PanelContainer/VBoxContainer"]
 margin_top = 75.0
 margin_right = 1262.0
-margin_bottom = 113.0
+margin_bottom = 141.0
 
 [node name="Padding" type="Control" parent="TabContainer/Main/PanelContainer/VBoxContainer/SecondLine"]
-margin_right = 282.0
-margin_bottom = 38.0
+margin_right = 159.0
+margin_bottom = 66.0
 grow_horizontal = 0
 grow_vertical = 0
 rect_min_size = Vector2( 50, 0 )
 size_flags_horizontal = 3
 
 [node name="PlayerCount" type="VBoxContainer" parent="TabContainer/Main/PanelContainer/VBoxContainer/SecondLine"]
-margin_left = 286.0
-margin_right = 486.0
-margin_bottom = 38.0
+margin_left = 163.0
+margin_right = 363.0
+margin_bottom = 66.0
 
 [node name="Label" type="Label" parent="TabContainer/Main/PanelContainer/VBoxContainer/SecondLine/PlayerCount"]
 margin_right = 200.0
@@ -212,16 +214,16 @@ text = "Item 0"
 script = ExtResource( 3 )
 
 [node name="Padding2" type="Control" parent="TabContainer/Main/PanelContainer/VBoxContainer/SecondLine"]
-margin_left = 490.0
-margin_right = 772.0
-margin_bottom = 38.0
+margin_left = 367.0
+margin_right = 527.0
+margin_bottom = 66.0
 rect_min_size = Vector2( 50, 0 )
 size_flags_horizontal = 3
 
 [node name="GameType" type="VBoxContainer" parent="TabContainer/Main/PanelContainer/VBoxContainer/SecondLine"]
-margin_left = 776.0
-margin_right = 976.0
-margin_bottom = 38.0
+margin_left = 531.0
+margin_right = 731.0
+margin_bottom = 66.0
 
 [node name="Label" type="Label" parent="TabContainer/Main/PanelContainer/VBoxContainer/SecondLine/GameType"]
 margin_right = 200.0
@@ -238,22 +240,135 @@ script = ExtResource( 2 )
 data_type = "modes"
 
 [node name="Padding3" type="Control" parent="TabContainer/Main/PanelContainer/VBoxContainer/SecondLine"]
-margin_left = 980.0
-margin_right = 1262.0
+margin_left = 735.0
+margin_right = 894.0
+margin_bottom = 66.0
+rect_min_size = Vector2( 50, 0 )
+size_flags_horizontal = 3
+
+[node name="BestOf" type="VBoxContainer" parent="TabContainer/Main/PanelContainer/VBoxContainer/SecondLine"]
+margin_left = 898.0
+margin_right = 1098.0
+margin_bottom = 66.0
+script = ExtResource( 8 )
+
+[node name="Label" type="Label" parent="TabContainer/Main/PanelContainer/VBoxContainer/SecondLine/BestOf"]
+margin_right = 200.0
+margin_bottom = 14.0
+text = "Best of..."
+align = 1
+
+[node name="BestOfButton" type="OptionButton" parent="TabContainer/Main/PanelContainer/VBoxContainer/SecondLine/BestOf"]
+margin_top = 18.0
+margin_right = 200.0
 margin_bottom = 38.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="VBoxContainer" type="HBoxContainer" parent="TabContainer/Main/PanelContainer/VBoxContainer/SecondLine/BestOf"]
+margin_top = 42.0
+margin_right = 200.0
+margin_bottom = 66.0
+
+[node name="CheckBox" type="CheckBox" parent="TabContainer/Main/PanelContainer/VBoxContainer/SecondLine/BestOf/VBoxContainer"]
+margin_right = 24.0
+margin_bottom = 24.0
+
+[node name="Label" type="Label" parent="TabContainer/Main/PanelContainer/VBoxContainer/SecondLine/BestOf/VBoxContainer"]
+margin_left = 28.0
+margin_top = 5.0
+margin_right = 142.0
+margin_bottom = 19.0
+text = "Extended Options"
+
+[node name="Padding4" type="Control" parent="TabContainer/Main/PanelContainer/VBoxContainer/SecondLine"]
+margin_left = 1102.0
+margin_right = 1262.0
+margin_bottom = 66.0
 rect_min_size = Vector2( 50, 0 )
 size_flags_horizontal = 3
 
 [node name="Padding2" type="Control" parent="TabContainer/Main/PanelContainer/VBoxContainer"]
-margin_top = 117.0
+margin_top = 145.0
 margin_right = 1262.0
-margin_bottom = 142.0
+margin_bottom = 170.0
+rect_min_size = Vector2( 0, 25 )
+
+[node name="ScoreLine" type="HBoxContainer" parent="TabContainer/Main/PanelContainer/VBoxContainer"]
+margin_top = 174.0
+margin_right = 1262.0
+margin_bottom = 212.0
+script = ExtResource( 9 )
+
+[node name="Padding" type="Control" parent="TabContainer/Main/PanelContainer/VBoxContainer/ScoreLine"]
+margin_right = 282.0
+margin_bottom = 38.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_min_size = Vector2( 50, 0 )
+size_flags_horizontal = 3
+
+[node name="Player1" type="VBoxContainer" parent="TabContainer/Main/PanelContainer/VBoxContainer/ScoreLine"]
+margin_left = 286.0
+margin_right = 486.0
+margin_bottom = 38.0
+
+[node name="Label" type="Label" parent="TabContainer/Main/PanelContainer/VBoxContainer/ScoreLine/Player1"]
+margin_right = 200.0
+margin_bottom = 14.0
+text = "Player 1 Wins"
+align = 1
+
+[node name="OptionButton" type="OptionButton" parent="TabContainer/Main/PanelContainer/VBoxContainer/ScoreLine/Player1"]
+margin_top = 18.0
+margin_right = 200.0
+margin_bottom = 38.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="Padding2" type="Control" parent="TabContainer/Main/PanelContainer/VBoxContainer/ScoreLine"]
+margin_left = 490.0
+margin_right = 772.0
+margin_bottom = 38.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_min_size = Vector2( 50, 0 )
+size_flags_horizontal = 3
+
+[node name="Player2" type="VBoxContainer" parent="TabContainer/Main/PanelContainer/VBoxContainer/ScoreLine"]
+margin_left = 776.0
+margin_right = 976.0
+margin_bottom = 38.0
+
+[node name="Label" type="Label" parent="TabContainer/Main/PanelContainer/VBoxContainer/ScoreLine/Player2"]
+margin_right = 200.0
+margin_bottom = 14.0
+text = "Player 2 Wins"
+align = 1
+
+[node name="OptionButton" type="OptionButton" parent="TabContainer/Main/PanelContainer/VBoxContainer/ScoreLine/Player2"]
+margin_top = 18.0
+margin_right = 200.0
+margin_bottom = 38.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="Padding3" type="Control" parent="TabContainer/Main/PanelContainer/VBoxContainer/ScoreLine"]
+margin_left = 980.0
+margin_right = 1262.0
+margin_bottom = 38.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_min_size = Vector2( 50, 0 )
+size_flags_horizontal = 3
+
+[node name="Padding3" type="Control" parent="TabContainer/Main/PanelContainer/VBoxContainer"]
+margin_top = 216.0
+margin_right = 1262.0
+margin_bottom = 241.0
 rect_min_size = Vector2( 0, 25 )
 
 [node name="PlayerLine1" type="HBoxContainer" parent="TabContainer/Main/PanelContainer/VBoxContainer"]
-margin_top = 146.0
+margin_top = 245.0
 margin_right = 1262.0
-margin_bottom = 146.0
+margin_bottom = 245.0
 script = ExtResource( 5 )
 
 [node name="Padding1" type="Control" parent="TabContainer/Main/PanelContainer/VBoxContainer/PlayerLine1"]
@@ -1175,6 +1290,8 @@ dialog_text = "You cannot have 0 players."
 [connection signal="item_selected" from="TabContainer/Main/PanelContainer/VBoxContainer/TopLine/GameColumn/GameDropDown" to="." method="_on_GameDropDown_item_selected"]
 [connection signal="item_selected" from="TabContainer/Main/PanelContainer/VBoxContainer/SecondLine/PlayerCount/NumberOfPlayers" to="." method="_on_NumberOfPlayers_item_selected"]
 [connection signal="item_selected" from="TabContainer/Main/PanelContainer/VBoxContainer/SecondLine/GameType/GameTypeOptions" to="." method="_on_GameTypeOptions_item_selected"]
+[connection signal="item_selected" from="TabContainer/Main/PanelContainer/VBoxContainer/SecondLine/BestOf/BestOfButton" to="TabContainer/Main/PanelContainer/VBoxContainer/SecondLine/BestOf" method="_on_BestOfButton_item_selected"]
+[connection signal="toggled" from="TabContainer/Main/PanelContainer/VBoxContainer/SecondLine/BestOf/VBoxContainer/CheckBox" to="TabContainer/Main/PanelContainer/VBoxContainer/SecondLine/BestOf" method="_on_CheckBox_toggled"]
 [connection signal="toggled" from="TabContainer/Main/PanelContainer/VBoxContainer/PlayerLine1/Player1/Override/CheckBox" to="TabContainer/Main/PanelContainer/VBoxContainer/PlayerLine1/Player1" method="_on_CheckBox_toggled"]
 [connection signal="toggled" from="TabContainer/Main/PanelContainer/VBoxContainer/PlayerLine1/Player2/Override/CheckBox" to="TabContainer/Main/PanelContainer/VBoxContainer/PlayerLine1/Player2" method="_on_CheckBox_toggled"]
 [connection signal="toggled" from="TabContainer/Main/PanelContainer/VBoxContainer/PlayerLine1/Player3/Override/CheckBox" to="TabContainer/Main/PanelContainer/VBoxContainer/PlayerLine1/Player3" method="_on_CheckBox_toggled"]

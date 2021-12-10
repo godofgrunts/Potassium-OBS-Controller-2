@@ -13,6 +13,10 @@ signal player_social_changed(obs_source, new_social)
 # warning-ignore:unused_signal
 signal player_pronoun_changed(obs_source, new_pronoun)
 # warning-ignore:unused_signal
-signal player_character_changed(obs_secure, new_character)
+signal player_character_changed(obs_source, new_character)
 # warning-ignore:unused_signal
-signal player_character_override_changed(obs_secure, new_character_override)
+signal player_character_override_changed(obs_source, new_character_override)
+# warning-ignore:unused_signal
+signal best_of_changed(new_max)
+# warning-ignore:unused_signal
+signal score_changed(obs_source, new_score)

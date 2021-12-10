@@ -25,20 +25,24 @@ func _ready() -> void:
 	SignalManager.connect("player_pronoun_changed", self, "_on_player_pronoun_changed")
 	SignalManager.connect("player_character_changed", self, "_on_player_character_changed")
 	SignalManager.connect("player_character_override_changed", self, "_on_player_character_override_changed")
+	SignalManager.connect("score_changed", self, "_on_player_score_changed")
 	_on_NumberOfPlayers_item_selected(2)
 	SignalManager.emit_signal("main_ready", $ObsWebsocket)
 	
 
 func _on_EventNameInput_text_changed(new_text: String) -> void:
 	event_name = new_text 
+	obs_websocket.send_command("SetSourceSettings", {"sourceName":"EventName", "sourceSettings":{"text":event_name}})
 
 
 func _on_ShorthandInput_text_changed(new_text: String) -> void:
-	shorthand_name = new_text 
+	shorthand_name = new_text
+	obs_websocket.send_command("SetSourceSettings", {"sourceName":"Shorthand", "sourceSettings":{"text":shorthand_name}}) 
 
 
 func _on_RoundInput_text_changed(new_text: String) -> void:
-	round_name = new_text 
+	round_name = new_text
+	obs_websocket.send_command("SetSourceSettings", {"sourceName":"Round", "sourceSettings":{"text":round_name}}) 
 
 
 func _on_GameDropDown_item_selected(index: int) -> void:
@@ -58,9 +62,13 @@ func _on_GameTypeOptions_item_selected(index: int) -> void:
 		0:
 			_on_NumberOfPlayers_item_selected(2)
 			number_of_players_menu.select(2)
+			$TabContainer/Main/PanelContainer/VBoxContainer/ScoreLine/Player1/Label.text = "Player 1 Wins"
+			$TabContainer/Main/PanelContainer/VBoxContainer/ScoreLine/Player2/Label.text = "Player 2 Wins"
 		1:
 			_on_NumberOfPlayers_item_selected(4)
 			number_of_players_menu.select(4)
+			$TabContainer/Main/PanelContainer/VBoxContainer/ScoreLine/Player1/Label.text = "Team 1 Wins"
+			$TabContainer/Main/PanelContainer/VBoxContainer/ScoreLine/Player2/Label.text = "Team 2 Wins"
 
 func _on_NumberOfPlayers_item_selected(index: int) -> void:
 	SignalManager.emit_signal("reset_player_lines")
@@ -73,7 +81,6 @@ func _on_NumberOfPlayers_item_selected(index: int) -> void:
 # warning-ignore:integer_division
 	var line_count = index / 4
 	var modulate_line = index % 4
-	print("modulate_line = %s" % modulate_line)
 	
 	if modulate_line != 0:
 		line_count = line_count + 1
@@ -107,6 +114,10 @@ func _on_player_character_changed(source, text) -> void:
 
 func _on_player_character_override_changed(source, text) -> void:
 	var source_name = source + "Character"
+	obs_websocket.send_command("SetSourceSettings", {"sourceName":source_name, "sourceSettings":{"text":text}})
+
+func _on_player_score_changed(source_name, score) -> void:
+	var text = str(score)
 	obs_websocket.send_command("SetSourceSettings", {"sourceName":source_name, "sourceSettings":{"text":text}})
 
 func _on_obs_updated(data) -> void:
