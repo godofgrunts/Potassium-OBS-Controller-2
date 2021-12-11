@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://scripts/GameDropDown.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://addons/obs_websocket_gd/obs_ui.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scripts/BestOf.gd" type="Script" id=8]
 [ext_resource path="res://scripts/ScoreLine.gd" type="Script" id=9]
+[ext_resource path="res://scripts/PlayerSettings.gd" type="Script" id=10]
 
 [node name="Main" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -25,6 +26,7 @@ __meta__ = {
 }
 
 [node name="Main" type="Tabs" parent="TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -1238,6 +1240,1007 @@ margin_right = -4.0
 margin_bottom = -4.0
 
 [node name="ObsUi" parent="TabContainer/OBS" instance=ExtResource( 7 )]
+
+[node name="Settings" type="Tabs" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="TabContainer" type="TabContainer" parent="TabContainer/Settings"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+tab_align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player1" type="Tabs" parent="TabContainer/Settings/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = ExtResource( 10 )
+
+[node name="PanelContainer" type="PanelContainer" parent="TabContainer/Settings/TabContainer/Player1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 1268, 658 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Settings/TabContainer/Player1/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1261.0
+margin_bottom = 651.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/Settings/TabContainer/Player1/PanelContainer/VBoxContainer"]
+margin_right = 1254.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+text = "Edit these fields to match the source names in your OBS.
+
+For example, if your name source for Player 1 is \"Player 1 Name\" change the \"Name\" field to \"Player 1 Name\" without the quotes."
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Settings/TabContainer/Player1/PanelContainer/VBoxContainer"]
+margin_top = 54.0
+margin_right = 1254.0
+margin_bottom = 190.0
+
+[node name="Labels" type="VBoxContainer" parent="TabContainer/Settings/TabContainer/Player1/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_right = 60.0
+margin_bottom = 136.0
+
+[node name="Padding5" type="Control" parent="TabContainer/Settings/TabContainer/Player1/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_right = 60.0
+margin_bottom = 1.676
+rect_min_size = Vector2( 0, 1.676 )
+
+[node name="Label" type="Label" parent="TabContainer/Settings/TabContainer/Player1/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 5.0
+margin_right = 60.0
+margin_bottom = 19.0
+text = "Name "
+
+[node name="Padding" type="Control" parent="TabContainer/Settings/TabContainer/Player1/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 23.0
+margin_right = 60.0
+margin_bottom = 29.537
+rect_min_size = Vector2( 0, 6.537 )
+
+[node name="Label2" type="Label" parent="TabContainer/Settings/TabContainer/Player1/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 33.0
+margin_right = 60.0
+margin_bottom = 47.0
+text = "Score"
+
+[node name="Padding2" type="Control" parent="TabContainer/Settings/TabContainer/Player1/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 51.0
+margin_right = 60.0
+margin_bottom = 57.353
+rect_min_size = Vector2( 0, 6.353 )
+
+[node name="Label3" type="Label" parent="TabContainer/Settings/TabContainer/Player1/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 61.0
+margin_right = 60.0
+margin_bottom = 75.0
+text = "Character"
+
+[node name="Padding3" type="Control" parent="TabContainer/Settings/TabContainer/Player1/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 79.0
+margin_right = 60.0
+margin_bottom = 85.403
+rect_min_size = Vector2( 0, 6.403 )
+
+[node name="Label4" type="Label" parent="TabContainer/Settings/TabContainer/Player1/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 89.0
+margin_right = 60.0
+margin_bottom = 103.0
+text = "Pronouns"
+
+[node name="Padding4" type="Control" parent="TabContainer/Settings/TabContainer/Player1/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 107.0
+margin_right = 60.0
+margin_bottom = 113.291
+rect_min_size = Vector2( 0, 6.291 )
+
+[node name="Label5" type="Label" parent="TabContainer/Settings/TabContainer/Player1/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 117.0
+margin_right = 60.0
+margin_bottom = 131.0
+text = "Social"
+
+[node name="Padding" type="Control" parent="TabContainer/Settings/TabContainer/Player1/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 64.0
+margin_right = 74.0
+margin_bottom = 136.0
+rect_min_size = Vector2( 10, 0 )
+
+[node name="Inputs" type="VBoxContainer" parent="TabContainer/Settings/TabContainer/Player1/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 78.0
+margin_right = 278.0
+margin_bottom = 136.0
+
+[node name="obs_name" type="LineEdit" parent="TabContainer/Settings/TabContainer/Player1/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_right = 200.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="score" type="LineEdit" parent="TabContainer/Settings/TabContainer/Player1/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_top = 28.0
+margin_right = 200.0
+margin_bottom = 52.0
+
+[node name="character" type="LineEdit" parent="TabContainer/Settings/TabContainer/Player1/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_top = 56.0
+margin_right = 200.0
+margin_bottom = 80.0
+
+[node name="pronouns" type="LineEdit" parent="TabContainer/Settings/TabContainer/Player1/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_top = 84.0
+margin_right = 200.0
+margin_bottom = 108.0
+
+[node name="social" type="LineEdit" parent="TabContainer/Settings/TabContainer/Player1/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_top = 112.0
+margin_right = 200.0
+margin_bottom = 136.0
+
+[node name="Player2" type="Tabs" parent="TabContainer/Settings/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = ExtResource( 10 )
+
+[node name="PanelContainer" type="PanelContainer" parent="TabContainer/Settings/TabContainer/Player2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 1268, 658 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Settings/TabContainer/Player2/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1261.0
+margin_bottom = 651.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/Settings/TabContainer/Player2/PanelContainer/VBoxContainer"]
+margin_right = 1254.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+text = "Edit these fields to match the source names in your OBS.
+
+For example, if your name source for Player 1 is \"Player 1 Name\" change the \"Name\" field to \"Player 1 Name\" without the quotes."
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Settings/TabContainer/Player2/PanelContainer/VBoxContainer"]
+margin_top = 54.0
+margin_right = 1254.0
+margin_bottom = 190.0
+
+[node name="Labels" type="VBoxContainer" parent="TabContainer/Settings/TabContainer/Player2/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_right = 60.0
+margin_bottom = 136.0
+
+[node name="Padding5" type="Control" parent="TabContainer/Settings/TabContainer/Player2/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_right = 60.0
+margin_bottom = 1.676
+rect_min_size = Vector2( 0, 1.676 )
+
+[node name="Label" type="Label" parent="TabContainer/Settings/TabContainer/Player2/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 5.0
+margin_right = 60.0
+margin_bottom = 19.0
+text = "Name "
+
+[node name="Padding" type="Control" parent="TabContainer/Settings/TabContainer/Player2/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 23.0
+margin_right = 60.0
+margin_bottom = 29.537
+rect_min_size = Vector2( 0, 6.537 )
+
+[node name="Label2" type="Label" parent="TabContainer/Settings/TabContainer/Player2/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 33.0
+margin_right = 60.0
+margin_bottom = 47.0
+text = "Score"
+
+[node name="Padding2" type="Control" parent="TabContainer/Settings/TabContainer/Player2/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 51.0
+margin_right = 60.0
+margin_bottom = 57.353
+rect_min_size = Vector2( 0, 6.353 )
+
+[node name="Label3" type="Label" parent="TabContainer/Settings/TabContainer/Player2/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 61.0
+margin_right = 60.0
+margin_bottom = 75.0
+text = "Character"
+
+[node name="Padding3" type="Control" parent="TabContainer/Settings/TabContainer/Player2/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 79.0
+margin_right = 60.0
+margin_bottom = 85.403
+rect_min_size = Vector2( 0, 6.403 )
+
+[node name="Label4" type="Label" parent="TabContainer/Settings/TabContainer/Player2/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 89.0
+margin_right = 60.0
+margin_bottom = 103.0
+text = "Pronouns"
+
+[node name="Padding4" type="Control" parent="TabContainer/Settings/TabContainer/Player2/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 107.0
+margin_right = 60.0
+margin_bottom = 113.291
+rect_min_size = Vector2( 0, 6.291 )
+
+[node name="Label5" type="Label" parent="TabContainer/Settings/TabContainer/Player2/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 117.0
+margin_right = 60.0
+margin_bottom = 131.0
+text = "Social"
+
+[node name="Padding" type="Control" parent="TabContainer/Settings/TabContainer/Player2/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 64.0
+margin_right = 74.0
+margin_bottom = 136.0
+rect_min_size = Vector2( 10, 0 )
+
+[node name="Inputs" type="VBoxContainer" parent="TabContainer/Settings/TabContainer/Player2/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 78.0
+margin_right = 278.0
+margin_bottom = 136.0
+
+[node name="obs_name" type="LineEdit" parent="TabContainer/Settings/TabContainer/Player2/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_right = 200.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="score" type="LineEdit" parent="TabContainer/Settings/TabContainer/Player2/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_top = 28.0
+margin_right = 200.0
+margin_bottom = 52.0
+
+[node name="character" type="LineEdit" parent="TabContainer/Settings/TabContainer/Player2/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_top = 56.0
+margin_right = 200.0
+margin_bottom = 80.0
+
+[node name="pronouns" type="LineEdit" parent="TabContainer/Settings/TabContainer/Player2/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_top = 84.0
+margin_right = 200.0
+margin_bottom = 108.0
+
+[node name="social" type="LineEdit" parent="TabContainer/Settings/TabContainer/Player2/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_top = 112.0
+margin_right = 200.0
+margin_bottom = 136.0
+
+[node name="Player3" type="Tabs" parent="TabContainer/Settings/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = ExtResource( 10 )
+
+[node name="PanelContainer" type="PanelContainer" parent="TabContainer/Settings/TabContainer/Player3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 1268, 658 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Settings/TabContainer/Player3/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1261.0
+margin_bottom = 651.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/Settings/TabContainer/Player3/PanelContainer/VBoxContainer"]
+margin_right = 1254.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+text = "Edit these fields to match the source names in your OBS.
+
+For example, if your name source for Player 1 is \"Player 1 Name\" change the \"Name\" field to \"Player 1 Name\" without the quotes."
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Settings/TabContainer/Player3/PanelContainer/VBoxContainer"]
+margin_top = 54.0
+margin_right = 1254.0
+margin_bottom = 162.0
+
+[node name="Labels" type="VBoxContainer" parent="TabContainer/Settings/TabContainer/Player3/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_right = 60.0
+margin_bottom = 108.0
+
+[node name="Padding5" type="Control" parent="TabContainer/Settings/TabContainer/Player3/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_right = 60.0
+margin_bottom = 1.676
+rect_min_size = Vector2( 0, 1.676 )
+
+[node name="Label" type="Label" parent="TabContainer/Settings/TabContainer/Player3/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 5.0
+margin_right = 60.0
+margin_bottom = 19.0
+text = "Name "
+
+[node name="Padding" type="Control" parent="TabContainer/Settings/TabContainer/Player3/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 23.0
+margin_right = 60.0
+margin_bottom = 29.537
+rect_min_size = Vector2( 0, 6.537 )
+
+[node name="Label3" type="Label" parent="TabContainer/Settings/TabContainer/Player3/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 33.0
+margin_right = 60.0
+margin_bottom = 47.0
+text = "Character"
+
+[node name="Padding3" type="Control" parent="TabContainer/Settings/TabContainer/Player3/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 51.0
+margin_right = 60.0
+margin_bottom = 57.403
+rect_min_size = Vector2( 0, 6.403 )
+
+[node name="Label4" type="Label" parent="TabContainer/Settings/TabContainer/Player3/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 61.0
+margin_right = 60.0
+margin_bottom = 75.0
+text = "Pronouns"
+
+[node name="Padding4" type="Control" parent="TabContainer/Settings/TabContainer/Player3/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 79.0
+margin_right = 60.0
+margin_bottom = 85.291
+rect_min_size = Vector2( 0, 6.291 )
+
+[node name="Label5" type="Label" parent="TabContainer/Settings/TabContainer/Player3/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 89.0
+margin_right = 60.0
+margin_bottom = 103.0
+text = "Social"
+
+[node name="Padding" type="Control" parent="TabContainer/Settings/TabContainer/Player3/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 64.0
+margin_right = 74.0
+margin_bottom = 108.0
+rect_min_size = Vector2( 10, 0 )
+
+[node name="Inputs" type="VBoxContainer" parent="TabContainer/Settings/TabContainer/Player3/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 78.0
+margin_right = 278.0
+margin_bottom = 108.0
+
+[node name="obs_name" type="LineEdit" parent="TabContainer/Settings/TabContainer/Player3/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_right = 200.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="character" type="LineEdit" parent="TabContainer/Settings/TabContainer/Player3/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_top = 28.0
+margin_right = 200.0
+margin_bottom = 52.0
+
+[node name="pronouns" type="LineEdit" parent="TabContainer/Settings/TabContainer/Player3/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_top = 56.0
+margin_right = 200.0
+margin_bottom = 80.0
+
+[node name="social" type="LineEdit" parent="TabContainer/Settings/TabContainer/Player3/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_top = 84.0
+margin_right = 200.0
+margin_bottom = 108.0
+
+[node name="Player4" type="Tabs" parent="TabContainer/Settings/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = ExtResource( 10 )
+
+[node name="PanelContainer" type="PanelContainer" parent="TabContainer/Settings/TabContainer/Player4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 1268, 658 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Settings/TabContainer/Player4/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1261.0
+margin_bottom = 651.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/Settings/TabContainer/Player4/PanelContainer/VBoxContainer"]
+margin_right = 1254.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+text = "Edit these fields to match the source names in your OBS.
+
+For example, if your name source for Player 1 is \"Player 1 Name\" change the \"Name\" field to \"Player 1 Name\" without the quotes."
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Settings/TabContainer/Player4/PanelContainer/VBoxContainer"]
+margin_top = 54.0
+margin_right = 1254.0
+margin_bottom = 162.0
+
+[node name="Labels" type="VBoxContainer" parent="TabContainer/Settings/TabContainer/Player4/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_right = 60.0
+margin_bottom = 108.0
+
+[node name="Padding5" type="Control" parent="TabContainer/Settings/TabContainer/Player4/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_right = 60.0
+margin_bottom = 1.676
+rect_min_size = Vector2( 0, 1.676 )
+
+[node name="Label" type="Label" parent="TabContainer/Settings/TabContainer/Player4/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 5.0
+margin_right = 60.0
+margin_bottom = 19.0
+text = "Name "
+
+[node name="Padding" type="Control" parent="TabContainer/Settings/TabContainer/Player4/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 23.0
+margin_right = 60.0
+margin_bottom = 29.537
+rect_min_size = Vector2( 0, 6.537 )
+
+[node name="Label3" type="Label" parent="TabContainer/Settings/TabContainer/Player4/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 33.0
+margin_right = 60.0
+margin_bottom = 47.0
+text = "Character"
+
+[node name="Padding3" type="Control" parent="TabContainer/Settings/TabContainer/Player4/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 51.0
+margin_right = 60.0
+margin_bottom = 57.403
+rect_min_size = Vector2( 0, 6.403 )
+
+[node name="Label4" type="Label" parent="TabContainer/Settings/TabContainer/Player4/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 61.0
+margin_right = 60.0
+margin_bottom = 75.0
+text = "Pronouns"
+
+[node name="Padding4" type="Control" parent="TabContainer/Settings/TabContainer/Player4/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 79.0
+margin_right = 60.0
+margin_bottom = 85.291
+rect_min_size = Vector2( 0, 6.291 )
+
+[node name="Label5" type="Label" parent="TabContainer/Settings/TabContainer/Player4/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 89.0
+margin_right = 60.0
+margin_bottom = 103.0
+text = "Social"
+
+[node name="Padding" type="Control" parent="TabContainer/Settings/TabContainer/Player4/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 64.0
+margin_right = 74.0
+margin_bottom = 108.0
+rect_min_size = Vector2( 10, 0 )
+
+[node name="Inputs" type="VBoxContainer" parent="TabContainer/Settings/TabContainer/Player4/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 78.0
+margin_right = 278.0
+margin_bottom = 108.0
+
+[node name="obs_name" type="LineEdit" parent="TabContainer/Settings/TabContainer/Player4/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_right = 200.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="character" type="LineEdit" parent="TabContainer/Settings/TabContainer/Player4/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_top = 28.0
+margin_right = 200.0
+margin_bottom = 52.0
+
+[node name="pronouns" type="LineEdit" parent="TabContainer/Settings/TabContainer/Player4/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_top = 56.0
+margin_right = 200.0
+margin_bottom = 80.0
+
+[node name="social" type="LineEdit" parent="TabContainer/Settings/TabContainer/Player4/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_top = 84.0
+margin_right = 200.0
+margin_bottom = 108.0
+
+[node name="Player5" type="Tabs" parent="TabContainer/Settings/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = ExtResource( 10 )
+
+[node name="PanelContainer" type="PanelContainer" parent="TabContainer/Settings/TabContainer/Player5"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 1268, 658 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Settings/TabContainer/Player5/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1261.0
+margin_bottom = 651.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/Settings/TabContainer/Player5/PanelContainer/VBoxContainer"]
+margin_right = 1254.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+text = "Edit these fields to match the source names in your OBS.
+
+For example, if your name source for Player 1 is \"Player 1 Name\" change the \"Name\" field to \"Player 1 Name\" without the quotes."
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Settings/TabContainer/Player5/PanelContainer/VBoxContainer"]
+margin_top = 54.0
+margin_right = 1254.0
+margin_bottom = 162.0
+
+[node name="Labels" type="VBoxContainer" parent="TabContainer/Settings/TabContainer/Player5/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_right = 60.0
+margin_bottom = 108.0
+
+[node name="Padding5" type="Control" parent="TabContainer/Settings/TabContainer/Player5/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_right = 60.0
+margin_bottom = 1.676
+rect_min_size = Vector2( 0, 1.676 )
+
+[node name="Label" type="Label" parent="TabContainer/Settings/TabContainer/Player5/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 5.0
+margin_right = 60.0
+margin_bottom = 19.0
+text = "Name "
+
+[node name="Padding" type="Control" parent="TabContainer/Settings/TabContainer/Player5/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 23.0
+margin_right = 60.0
+margin_bottom = 29.537
+rect_min_size = Vector2( 0, 6.537 )
+
+[node name="Label3" type="Label" parent="TabContainer/Settings/TabContainer/Player5/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 33.0
+margin_right = 60.0
+margin_bottom = 47.0
+text = "Character"
+
+[node name="Padding3" type="Control" parent="TabContainer/Settings/TabContainer/Player5/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 51.0
+margin_right = 60.0
+margin_bottom = 57.403
+rect_min_size = Vector2( 0, 6.403 )
+
+[node name="Label4" type="Label" parent="TabContainer/Settings/TabContainer/Player5/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 61.0
+margin_right = 60.0
+margin_bottom = 75.0
+text = "Pronouns"
+
+[node name="Padding4" type="Control" parent="TabContainer/Settings/TabContainer/Player5/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 79.0
+margin_right = 60.0
+margin_bottom = 85.291
+rect_min_size = Vector2( 0, 6.291 )
+
+[node name="Label5" type="Label" parent="TabContainer/Settings/TabContainer/Player5/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 89.0
+margin_right = 60.0
+margin_bottom = 103.0
+text = "Social"
+
+[node name="Padding" type="Control" parent="TabContainer/Settings/TabContainer/Player5/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 64.0
+margin_right = 74.0
+margin_bottom = 108.0
+rect_min_size = Vector2( 10, 0 )
+
+[node name="Inputs" type="VBoxContainer" parent="TabContainer/Settings/TabContainer/Player5/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 78.0
+margin_right = 278.0
+margin_bottom = 108.0
+
+[node name="obs_name" type="LineEdit" parent="TabContainer/Settings/TabContainer/Player5/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_right = 200.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="character" type="LineEdit" parent="TabContainer/Settings/TabContainer/Player5/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_top = 28.0
+margin_right = 200.0
+margin_bottom = 52.0
+
+[node name="pronouns" type="LineEdit" parent="TabContainer/Settings/TabContainer/Player5/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_top = 56.0
+margin_right = 200.0
+margin_bottom = 80.0
+
+[node name="social" type="LineEdit" parent="TabContainer/Settings/TabContainer/Player5/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_top = 84.0
+margin_right = 200.0
+margin_bottom = 108.0
+
+[node name="Player6" type="Tabs" parent="TabContainer/Settings/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = ExtResource( 10 )
+
+[node name="PanelContainer" type="PanelContainer" parent="TabContainer/Settings/TabContainer/Player6"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 1268, 658 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Settings/TabContainer/Player6/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1261.0
+margin_bottom = 651.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/Settings/TabContainer/Player6/PanelContainer/VBoxContainer"]
+margin_right = 1254.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+text = "Edit these fields to match the source names in your OBS.
+
+For example, if your name source for Player 1 is \"Player 1 Name\" change the \"Name\" field to \"Player 1 Name\" without the quotes."
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Settings/TabContainer/Player6/PanelContainer/VBoxContainer"]
+margin_top = 54.0
+margin_right = 1254.0
+margin_bottom = 162.0
+
+[node name="Labels" type="VBoxContainer" parent="TabContainer/Settings/TabContainer/Player6/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_right = 60.0
+margin_bottom = 108.0
+
+[node name="Padding5" type="Control" parent="TabContainer/Settings/TabContainer/Player6/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_right = 60.0
+margin_bottom = 1.676
+rect_min_size = Vector2( 0, 1.676 )
+
+[node name="Label" type="Label" parent="TabContainer/Settings/TabContainer/Player6/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 5.0
+margin_right = 60.0
+margin_bottom = 19.0
+text = "Name "
+
+[node name="Padding" type="Control" parent="TabContainer/Settings/TabContainer/Player6/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 23.0
+margin_right = 60.0
+margin_bottom = 29.537
+rect_min_size = Vector2( 0, 6.537 )
+
+[node name="Label3" type="Label" parent="TabContainer/Settings/TabContainer/Player6/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 33.0
+margin_right = 60.0
+margin_bottom = 47.0
+text = "Character"
+
+[node name="Padding3" type="Control" parent="TabContainer/Settings/TabContainer/Player6/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 51.0
+margin_right = 60.0
+margin_bottom = 57.403
+rect_min_size = Vector2( 0, 6.403 )
+
+[node name="Label4" type="Label" parent="TabContainer/Settings/TabContainer/Player6/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 61.0
+margin_right = 60.0
+margin_bottom = 75.0
+text = "Pronouns"
+
+[node name="Padding4" type="Control" parent="TabContainer/Settings/TabContainer/Player6/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 79.0
+margin_right = 60.0
+margin_bottom = 85.291
+rect_min_size = Vector2( 0, 6.291 )
+
+[node name="Label5" type="Label" parent="TabContainer/Settings/TabContainer/Player6/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 89.0
+margin_right = 60.0
+margin_bottom = 103.0
+text = "Social"
+
+[node name="Padding" type="Control" parent="TabContainer/Settings/TabContainer/Player6/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 64.0
+margin_right = 74.0
+margin_bottom = 108.0
+rect_min_size = Vector2( 10, 0 )
+
+[node name="Inputs" type="VBoxContainer" parent="TabContainer/Settings/TabContainer/Player6/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 78.0
+margin_right = 278.0
+margin_bottom = 108.0
+
+[node name="obs_name" type="LineEdit" parent="TabContainer/Settings/TabContainer/Player6/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_right = 200.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="character" type="LineEdit" parent="TabContainer/Settings/TabContainer/Player6/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_top = 28.0
+margin_right = 200.0
+margin_bottom = 52.0
+
+[node name="pronouns" type="LineEdit" parent="TabContainer/Settings/TabContainer/Player6/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_top = 56.0
+margin_right = 200.0
+margin_bottom = 80.0
+
+[node name="social" type="LineEdit" parent="TabContainer/Settings/TabContainer/Player6/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_top = 84.0
+margin_right = 200.0
+margin_bottom = 108.0
+
+[node name="Player7" type="Tabs" parent="TabContainer/Settings/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = ExtResource( 10 )
+
+[node name="PanelContainer" type="PanelContainer" parent="TabContainer/Settings/TabContainer/Player7"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 1268, 658 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Settings/TabContainer/Player7/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1261.0
+margin_bottom = 651.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/Settings/TabContainer/Player7/PanelContainer/VBoxContainer"]
+margin_right = 1254.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+text = "Edit these fields to match the source names in your OBS.
+
+For example, if your name source for Player 1 is \"Player 1 Name\" change the \"Name\" field to \"Player 1 Name\" without the quotes."
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Settings/TabContainer/Player7/PanelContainer/VBoxContainer"]
+margin_top = 54.0
+margin_right = 1254.0
+margin_bottom = 162.0
+
+[node name="Labels" type="VBoxContainer" parent="TabContainer/Settings/TabContainer/Player7/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_right = 60.0
+margin_bottom = 108.0
+
+[node name="Padding5" type="Control" parent="TabContainer/Settings/TabContainer/Player7/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_right = 60.0
+margin_bottom = 1.676
+rect_min_size = Vector2( 0, 1.676 )
+
+[node name="Label" type="Label" parent="TabContainer/Settings/TabContainer/Player7/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 5.0
+margin_right = 60.0
+margin_bottom = 19.0
+text = "Name "
+
+[node name="Padding" type="Control" parent="TabContainer/Settings/TabContainer/Player7/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 23.0
+margin_right = 60.0
+margin_bottom = 29.537
+rect_min_size = Vector2( 0, 6.537 )
+
+[node name="Label3" type="Label" parent="TabContainer/Settings/TabContainer/Player7/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 33.0
+margin_right = 60.0
+margin_bottom = 47.0
+text = "Character"
+
+[node name="Padding3" type="Control" parent="TabContainer/Settings/TabContainer/Player7/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 51.0
+margin_right = 60.0
+margin_bottom = 57.403
+rect_min_size = Vector2( 0, 6.403 )
+
+[node name="Label4" type="Label" parent="TabContainer/Settings/TabContainer/Player7/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 61.0
+margin_right = 60.0
+margin_bottom = 75.0
+text = "Pronouns"
+
+[node name="Padding4" type="Control" parent="TabContainer/Settings/TabContainer/Player7/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 79.0
+margin_right = 60.0
+margin_bottom = 85.291
+rect_min_size = Vector2( 0, 6.291 )
+
+[node name="Label5" type="Label" parent="TabContainer/Settings/TabContainer/Player7/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 89.0
+margin_right = 60.0
+margin_bottom = 103.0
+text = "Social"
+
+[node name="Padding" type="Control" parent="TabContainer/Settings/TabContainer/Player7/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 64.0
+margin_right = 74.0
+margin_bottom = 108.0
+rect_min_size = Vector2( 10, 0 )
+
+[node name="Inputs" type="VBoxContainer" parent="TabContainer/Settings/TabContainer/Player7/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 78.0
+margin_right = 278.0
+margin_bottom = 108.0
+
+[node name="obs_name" type="LineEdit" parent="TabContainer/Settings/TabContainer/Player7/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_right = 200.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="character" type="LineEdit" parent="TabContainer/Settings/TabContainer/Player7/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_top = 28.0
+margin_right = 200.0
+margin_bottom = 52.0
+
+[node name="pronouns" type="LineEdit" parent="TabContainer/Settings/TabContainer/Player7/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_top = 56.0
+margin_right = 200.0
+margin_bottom = 80.0
+
+[node name="social" type="LineEdit" parent="TabContainer/Settings/TabContainer/Player7/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_top = 84.0
+margin_right = 200.0
+margin_bottom = 108.0
+
+[node name="Player8" type="Tabs" parent="TabContainer/Settings/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = ExtResource( 10 )
+
+[node name="PanelContainer" type="PanelContainer" parent="TabContainer/Settings/TabContainer/Player8"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 1268, 658 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Settings/TabContainer/Player8/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1261.0
+margin_bottom = 651.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/Settings/TabContainer/Player8/PanelContainer/VBoxContainer"]
+margin_right = 1254.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+text = "Edit these fields to match the source names in your OBS.
+
+For example, if your name source for Player 1 is \"Player 1 Name\" change the \"Name\" field to \"Player 1 Name\" without the quotes."
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Settings/TabContainer/Player8/PanelContainer/VBoxContainer"]
+margin_top = 54.0
+margin_right = 1254.0
+margin_bottom = 162.0
+
+[node name="Labels" type="VBoxContainer" parent="TabContainer/Settings/TabContainer/Player8/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_right = 60.0
+margin_bottom = 108.0
+
+[node name="Padding5" type="Control" parent="TabContainer/Settings/TabContainer/Player8/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_right = 60.0
+margin_bottom = 1.676
+rect_min_size = Vector2( 0, 1.676 )
+
+[node name="Label" type="Label" parent="TabContainer/Settings/TabContainer/Player8/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 5.0
+margin_right = 60.0
+margin_bottom = 19.0
+text = "Name "
+
+[node name="Padding" type="Control" parent="TabContainer/Settings/TabContainer/Player8/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 23.0
+margin_right = 60.0
+margin_bottom = 29.537
+rect_min_size = Vector2( 0, 6.537 )
+
+[node name="Label3" type="Label" parent="TabContainer/Settings/TabContainer/Player8/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 33.0
+margin_right = 60.0
+margin_bottom = 47.0
+text = "Character"
+
+[node name="Padding3" type="Control" parent="TabContainer/Settings/TabContainer/Player8/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 51.0
+margin_right = 60.0
+margin_bottom = 57.403
+rect_min_size = Vector2( 0, 6.403 )
+
+[node name="Label4" type="Label" parent="TabContainer/Settings/TabContainer/Player8/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 61.0
+margin_right = 60.0
+margin_bottom = 75.0
+text = "Pronouns"
+
+[node name="Padding4" type="Control" parent="TabContainer/Settings/TabContainer/Player8/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 79.0
+margin_right = 60.0
+margin_bottom = 85.291
+rect_min_size = Vector2( 0, 6.291 )
+
+[node name="Label5" type="Label" parent="TabContainer/Settings/TabContainer/Player8/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 89.0
+margin_right = 60.0
+margin_bottom = 103.0
+text = "Social"
+
+[node name="Padding" type="Control" parent="TabContainer/Settings/TabContainer/Player8/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 64.0
+margin_right = 74.0
+margin_bottom = 108.0
+rect_min_size = Vector2( 10, 0 )
+
+[node name="Inputs" type="VBoxContainer" parent="TabContainer/Settings/TabContainer/Player8/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 78.0
+margin_right = 278.0
+margin_bottom = 108.0
+
+[node name="obs_name" type="LineEdit" parent="TabContainer/Settings/TabContainer/Player8/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_right = 200.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="character" type="LineEdit" parent="TabContainer/Settings/TabContainer/Player8/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_top = 28.0
+margin_right = 200.0
+margin_bottom = 52.0
+
+[node name="pronouns" type="LineEdit" parent="TabContainer/Settings/TabContainer/Player8/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_top = 56.0
+margin_right = 200.0
+margin_bottom = 80.0
+
+[node name="social" type="LineEdit" parent="TabContainer/Settings/TabContainer/Player8/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_top = 84.0
+margin_right = 200.0
+margin_bottom = 108.0
 
 [node name="Testing" type="Tabs" parent="TabContainer"]
 visible = false
