@@ -255,3 +255,15 @@ func _create_source_button(button_name: String, button_render: bool) -> void:
 ###############################################################################
 # Public functions                                                            #
 ###############################################################################
+
+
+func _on_ip_changed(new_text: String) -> void:
+	var sig_name := "ip"
+	var dict := {"ip":new_text}
+	SignalManager.emit_signal("settings_changed", sig_name, dict)
+
+
+func _on_port_changed(new_text: String) -> void:
+	var sig_name := "port"
+	var dict := {"port":new_text}
+	SignalManager.emit_signal("settings_changed", sig_name, dict)

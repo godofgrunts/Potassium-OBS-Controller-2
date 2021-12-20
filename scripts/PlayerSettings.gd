@@ -1,6 +1,7 @@
 extends Tabs
 
 onready var input_settings = $PanelContainer/VBoxContainer/HBoxContainer/Inputs
+var custom_settings
 var settings := []
 var obs_data := {}
 var save_data := {}
@@ -38,7 +39,8 @@ func save() -> void:
 	_get_data()
 	save_data.clear()
 	save_data[self.name] = obs_data
-	print(to_json(save_data))
+	#print(to_json(save_data))
+	SignalManager.emit_signal("settings_changed", self.name, save_data)
 
 func _get_data() -> void:
 	obs_data.clear()

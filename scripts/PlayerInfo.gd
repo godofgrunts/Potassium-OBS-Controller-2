@@ -4,10 +4,15 @@ var override : bool = false
 var char_index : int = 0
 
 func _ready() -> void:
+# warning-ignore:return_value_discarded
 	$PlayerInput.connect("text_changed", self, "_player_name_change")
+# warning-ignore:return_value_discarded
 	$PlayerSocial.connect("text_changed", self, "_player_social_change")
+# warning-ignore:return_value_discarded
 	$PlayerPronouns.connect("text_changed", self, "_player_pronoun_change")
+# warning-ignore:return_value_discarded
 	$PlayerCharacter.connect("item_selected", self, "_player_character_change")
+# warning-ignore:return_value_discarded
 	$PlayerCharacterOverride.connect("text_changed", self, "_player_character_override_change")
 
 func _on_CheckBox_toggled(button_pressed: bool) -> void:

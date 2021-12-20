@@ -4,12 +4,13 @@ extends HBoxContainer
 func _ready() -> void:
 # warning-ignore:return_value_discarded
 	SignalManager.connect("best_of_changed", self, "_on_best_of_changed")
+# warning-ignore:return_value_discarded
 	$Player1/OptionButton.connect("item_selected", self, "_on_score_change_player1")
+# warning-ignore:return_value_discarded
 	$Player2/OptionButton.connect("item_selected", self, "_on_score_change_player2")
 	_on_best_of_changed(1)
 
 func _on_best_of_changed(max_range) -> void:
-	print(max_range)
 	reset_dropdown()
 	
 # warning-ignore:integer_division
@@ -31,7 +32,7 @@ func reset_dropdown() -> void:
 
 func _on_score_change_player1(index) -> void:
 	var new_score = $Player1/OptionButton.get_item_index(index)
-	SignalManager.emit_signal("score_changed", "Player1Score", new_score)
+	SignalManager.emit_signal("score_changed", "Player1", new_score)
 
 func _on_score_change_player2(index) -> void:
 	var new_score = $Player2/OptionButton.get_item_index(index)

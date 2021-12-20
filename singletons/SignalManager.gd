@@ -20,3 +20,5 @@ signal player_character_override_changed(obs_source, new_character_override)
 signal best_of_changed(new_max)
 # warning-ignore:unused_signal
 signal score_changed(obs_source, new_score)
+# warning-ignore:unused_signal
+signal settings_changed(source, dict)
