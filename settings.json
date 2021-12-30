@@ -78,10 +78,19 @@
 	],
 	"information":
 	[
+		{	
+			"Video":
+			{
+				"round":"Round",
+				"shorthand":"Shorthand",
+				"eventname":"EventName"
+			}
+		},
 		{
-			"round":"Round",
-			"shorthand":"Shorthand",
-			"eventname":"EventName"
+			"Filename":
+			{
+				"filename":"filename"
+			}
 		}
 	],
 	"obs":

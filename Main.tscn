@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://scripts/GameDropDown.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://scripts/BestOf.gd" type="Script" id=8]
 [ext_resource path="res://scripts/ScoreLine.gd" type="Script" id=9]
 [ext_resource path="res://scripts/PlayerSettings.gd" type="Script" id=10]
+[ext_resource path="res://scripts/Video.gd" type="Script" id=11]
 
 [node name="Main" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -1258,6 +1259,7 @@ __meta__ = {
 }
 
 [node name="Player1" type="Tabs" parent="TabContainer/Settings/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -2241,6 +2243,134 @@ margin_bottom = 80.0
 margin_top = 84.0
 margin_right = 200.0
 margin_bottom = 108.0
+
+[node name="Other" type="Tabs" parent="TabContainer/Settings/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="TabContainer" type="TabContainer" parent="TabContainer/Settings/TabContainer/Other"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+tab_align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Video" type="Tabs" parent="TabContainer/Settings/TabContainer/Other/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -1224.0
+margin_bottom = -596.0
+script = ExtResource( 11 )
+
+[node name="PanelContainer" type="PanelContainer" parent="TabContainer/Settings/TabContainer/Other/TabContainer/Video"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 1267, 627 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Settings/TabContainer/Other/TabContainer/Video/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1260.0
+margin_bottom = 620.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/Settings/TabContainer/Other/TabContainer/Video/PanelContainer/VBoxContainer"]
+margin_right = 1253.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+text = "Edit these fields to match the source names in your OBS.
+
+For example, if your name source for Player 1 is \"Player 1 Name\" change the \"Name\" field to \"Player 1 Name\" without the quotes."
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Settings/TabContainer/Other/TabContainer/Video/PanelContainer/VBoxContainer"]
+margin_top = 54.0
+margin_right = 1253.0
+margin_bottom = 134.0
+
+[node name="Labels" type="VBoxContainer" parent="TabContainer/Settings/TabContainer/Other/TabContainer/Video/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_right = 103.0
+margin_bottom = 80.0
+
+[node name="Padding5" type="Control" parent="TabContainer/Settings/TabContainer/Other/TabContainer/Video/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_right = 103.0
+margin_bottom = 1.676
+rect_min_size = Vector2( 0, 1.676 )
+
+[node name="Label" type="Label" parent="TabContainer/Settings/TabContainer/Other/TabContainer/Video/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 5.0
+margin_right = 103.0
+margin_bottom = 19.0
+text = "Round"
+
+[node name="Padding" type="Control" parent="TabContainer/Settings/TabContainer/Other/TabContainer/Video/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 23.0
+margin_right = 103.0
+margin_bottom = 29.537
+rect_min_size = Vector2( 0, 6.537 )
+
+[node name="Label3" type="Label" parent="TabContainer/Settings/TabContainer/Other/TabContainer/Video/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 33.0
+margin_right = 103.0
+margin_bottom = 47.0
+text = "Event Name"
+
+[node name="Padding3" type="Control" parent="TabContainer/Settings/TabContainer/Other/TabContainer/Video/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 51.0
+margin_right = 103.0
+margin_bottom = 57.403
+rect_min_size = Vector2( 0, 6.403 )
+
+[node name="Label4" type="Label" parent="TabContainer/Settings/TabContainer/Other/TabContainer/Video/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 61.0
+margin_right = 103.0
+margin_bottom = 75.0
+text = "Event Shorthand"
+
+[node name="Padding" type="Control" parent="TabContainer/Settings/TabContainer/Other/TabContainer/Video/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 107.0
+margin_right = 117.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 10, 0 )
+
+[node name="Inputs" type="VBoxContainer" parent="TabContainer/Settings/TabContainer/Other/TabContainer/Video/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 121.0
+margin_right = 321.0
+margin_bottom = 80.0
+
+[node name="round" type="LineEdit" parent="TabContainer/Settings/TabContainer/Other/TabContainer/Video/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_right = 200.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="eventname" type="LineEdit" parent="TabContainer/Settings/TabContainer/Other/TabContainer/Video/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_top = 28.0
+margin_right = 200.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="shorthand" type="LineEdit" parent="TabContainer/Settings/TabContainer/Other/TabContainer/Video/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_top = 56.0
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="Filename" type="Tabs" parent="TabContainer/Settings/TabContainer/Other/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -1224.0
+margin_bottom = -596.0
 
 [node name="Testing" type="Tabs" parent="TabContainer"]
 visible = false

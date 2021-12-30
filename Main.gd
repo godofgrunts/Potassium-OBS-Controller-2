@@ -39,25 +39,66 @@ func _ready() -> void:
 	SignalManager.emit_signal("main_ready", $ObsWebsocket)
 	
 
-func _on_EventNameInput_text_changed(new_text: String) -> void:
-	event_name = new_text 
-	obs_websocket.send_command("SetSourceSettings", {"sourceName":"EventName", "sourceSettings":{"text":event_name}})
 
+func _get_player_source_name(source, setting) -> String:
+	var source_name
+	var players = Settings.json_info["players"]
+	for i in range(players.size()):
+		if players[i].has(source):
+			source_name = players[i].get(source).get(setting)
+	return source_name
+	
+func _get_info_source_name(setting) -> String:
+	var source_name
+	for i in Settings.json_info["information"]:
+		if i.has("Video"):
+			source_name = i["Video"].get(setting)
+	return source_name
+			
+
+func _on_player_name_changed(source, text) -> void:
+	var source_name = _get_player_source_name(source, "obs_name")
+	obs_websocket.send_command("SetSourceSettings", {"sourceName":source_name, "sourceSettings":{"text":text}})
+
+func _on_player_social_changed(source, text) -> void:
+	var source_name = _get_player_source_name(source, "social")
+	obs_websocket.send_command("SetSourceSettings", {"sourceName":source_name, "sourceSettings":{"text":text}})
+
+func _on_player_pronoun_changed(source, text) -> void:
+	var source_name = _get_player_source_name(source, "pronouns")
+	obs_websocket.send_command("SetSourceSettings", {"sourceName":source_name, "sourceSettings":{"text":text}})
+
+func _on_player_character_changed(source, text) -> void:
+	var source_name = _get_player_source_name(source, "character")
+	obs_websocket.send_command("SetSourceSettings", {"sourceName":source_name, "sourceSettings":{"text":text}})
+
+func _on_player_character_override_changed(source, text) -> void:
+	var source_name = _get_player_source_name(source, "character")
+	obs_websocket.send_command("SetSourceSettings", {"sourceName":source_name, "sourceSettings":{"text":text}})
+
+func _on_player_score_changed(source, score) -> void:
+	var source_name = _get_player_source_name(source, "score")
+	var text = str(score)
+	obs_websocket.send_command("SetSourceSettings", {"sourceName":source_name, "sourceSettings":{"text":text}})
+
+func _on_EventNameInput_text_changed(new_text: String) -> void:
+	var source_name : String = _get_info_source_name("eventname")
+	Info.event_name = new_text 
+	obs_websocket.send_command("SetSourceSettings", {"sourceName":source_name, "sourceSettings":{"text":Info.event_name}})
 
 func _on_ShorthandInput_text_changed(new_text: String) -> void:
-	shorthand_name = new_text
-	obs_websocket.send_command("SetSourceSettings", {"sourceName":"Shorthand", "sourceSettings":{"text":shorthand_name}}) 
-
+	var source_name : String = _get_info_source_name("shorthand")
+	Info.shorthand_name = new_text 
+	obs_websocket.send_command("SetSourceSettings", {"sourceName":source_name, "sourceSettings":{"text":Info.shorthand_name}})
 
 func _on_RoundInput_text_changed(new_text: String) -> void:
-	round_name = new_text
-	obs_websocket.send_command("SetSourceSettings", {"sourceName":"Round", "sourceSettings":{"text":round_name}}) 
-
+	var source_name : String = _get_info_source_name("round")
+	Info.round_name = new_text 
+	obs_websocket.send_command("SetSourceSettings", {"sourceName":source_name, "sourceSettings":{"text":Info.round_name}})
 
 func _on_GameDropDown_item_selected(index: int) -> void:
 	game_name = game_dropdown_menu.get_item_text(index)
 	SignalManager.emit_signal("game_changed", game_name)
-
 
 func _on_GameTypeOptions_item_selected(index: int) -> void:
 	### INDEX REFERENCE
@@ -103,47 +144,16 @@ func _on_NumberOfPlayers_item_selected(index: int) -> void:
 			if k > 4:
 				k = k - 4
 			line.show_players(k, i)
-			
-
-func _get_palyer_source_name(source, setting) -> String:
-	var source_name
-	var players = Settings.json_info["players"]
-	for i in range(players.size()):
-		if players[i].has(source):
-			source_name = players[i].get(source).get(setting)
-	return source_name
-
-func _on_player_name_changed(source, text) -> void:
-	var source_name = _get_palyer_source_name(source, "obs_name")
-	obs_websocket.send_command("SetSourceSettings", {"sourceName":source_name, "sourceSettings":{"text":text}})
-
-func _on_player_social_changed(source, text) -> void:
-	var source_name = _get_palyer_source_name(source, "social")
-	obs_websocket.send_command("SetSourceSettings", {"sourceName":source_name, "sourceSettings":{"text":text}})
-
-func _on_player_pronoun_changed(source, text) -> void:
-	var source_name = _get_palyer_source_name(source, "pronouns")
-	obs_websocket.send_command("SetSourceSettings", {"sourceName":source_name, "sourceSettings":{"text":text}})
-
-func _on_player_character_changed(source, text) -> void:
-	var source_name = _get_palyer_source_name(source, "character")
-	obs_websocket.send_command("SetSourceSettings", {"sourceName":source_name, "sourceSettings":{"text":text}})
-
-func _on_player_character_override_changed(source, text) -> void:
-	var source_name = _get_palyer_source_name(source, "character")
-	obs_websocket.send_command("SetSourceSettings", {"sourceName":source_name, "sourceSettings":{"text":text}})
-
-func _on_player_score_changed(source, score) -> void:
-	var source_name = _get_palyer_source_name(source, "score")
-	var text = str(score)
-	obs_websocket.send_command("SetSourceSettings", {"sourceName":source_name, "sourceSettings":{"text":text}})
 
 func _on_obs_updated(data) -> void:
 	pass
+	
 func _on_obs_connected() -> void:
 	print("connected")
+	
 func _on_obs_scene_list_returned() -> void:
 	pass
+	
 
 
 

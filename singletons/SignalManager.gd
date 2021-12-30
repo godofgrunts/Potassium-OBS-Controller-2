@@ -22,3 +22,5 @@ signal best_of_changed(new_max)
 signal score_changed(obs_source, new_score)
 # warning-ignore:unused_signal
 signal settings_changed(source, dict)
+# warning-ignore:unused_signal
+signal filename_array_changed(array)

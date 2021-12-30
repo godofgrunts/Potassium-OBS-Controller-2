@@ -26,7 +26,7 @@ func _set_up() -> void:
 	for i in input_settings.get_children():
 		if i is LineEdit:
 			settings.append(i.name)
-	for i in Settings.json_info.players:
+	for i in Settings.json_info.information:
 		if i.has(self.name):
 			for h in settings:
 				input_settings.find_node(h).text = i.get(self.name)[h]
@@ -39,7 +39,7 @@ func save() -> void:
 
 func _get_data() -> void:
 	obs_data.clear()
-	for i in Settings.json_info.players:
+	for i in Settings.json_info.information:
 		if i.has(self.name):
 			for h in settings:
 				obs_data[h] = self.find_node(h).text

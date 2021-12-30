@@ -145,6 +145,7 @@ func _on_obs_updated(obs_data: Dictionary) -> void:
 			"RecordingStopped":
 				record.text = START_RECORDING
 				is_recording = false
+				_rename_file(obs_data["recordingFilename"])
 			"StreamingStarted":
 				stream.text = STOP_STREAMING
 				is_streaming = true
@@ -251,6 +252,13 @@ func _create_source_button(button_name: String, button_render: bool) -> void:
 	source_button.connect("toggled", self, "_on_source_item_toggled", [button_name])
 	sources.call_deferred("add_child", source_button)
 
+func _rename_file(file_name):
+	print(file_name.get_basename())
+	print(file_name.get_base_dir())
+	var f = Directory.new()
+	var error = f.rename(file_name, "/home/whitedr/Videos/temp/test.mkv")
+	if error:
+		print("Error %s" % error)
 
 ###############################################################################
 # Public functions                                                            #
