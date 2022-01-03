@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://scripts/GameDropDown.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://scripts/ScoreLine.gd" type="Script" id=9]
 [ext_resource path="res://scripts/PlayerSettings.gd" type="Script" id=10]
 [ext_resource path="res://scripts/Video.gd" type="Script" id=11]
+[ext_resource path="res://scripts/Filename.gd" type="Script" id=12]
 
 [node name="Main" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -27,6 +28,7 @@ __meta__ = {
 }
 
 [node name="Main" type="Tabs" parent="TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -1242,7 +1244,6 @@ margin_bottom = -4.0
 [node name="ObsUi" parent="TabContainer/OBS" instance=ExtResource( 7 )]
 
 [node name="Settings" type="Tabs" parent="TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -2261,12 +2262,13 @@ __meta__ = {
 }
 
 [node name="Video" type="Tabs" parent="TabContainer/Settings/TabContainer/Other/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
 margin_top = 32.0
-margin_right = -1224.0
-margin_bottom = -596.0
+margin_right = -4.0
+margin_bottom = -4.0
 script = ExtResource( 11 )
 
 [node name="PanelContainer" type="PanelContainer" parent="TabContainer/Settings/TabContainer/Other/TabContainer/Video"]
@@ -2364,13 +2366,96 @@ margin_bottom = 80.0
 rect_min_size = Vector2( 200, 0 )
 
 [node name="Filename" type="Tabs" parent="TabContainer/Settings/TabContainer/Other/TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
 margin_top = 32.0
-margin_right = -1224.0
-margin_bottom = -596.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = ExtResource( 12 )
+
+[node name="PanelContainer" type="PanelContainer" parent="TabContainer/Settings/TabContainer/Other/TabContainer/Filename"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Settings/TabContainer/Other/TabContainer/Filename/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1253.0
+margin_bottom = 609.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Builder" type="HBoxContainer" parent="TabContainer/Settings/TabContainer/Other/TabContainer/Filename/PanelContainer/VBoxContainer"]
+margin_right = 1246.0
+margin_bottom = 299.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_pivot_offset = Vector2( -226, 423 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextOptions" type="OptionButton" parent="TabContainer/Settings/TabContainer/Other/TabContainer/Filename/PanelContainer/VBoxContainer/Builder"]
+margin_top = 137.0
+margin_right = 200.0
+margin_bottom = 161.0
+rect_min_size = Vector2( 200, 24 )
+size_flags_vertical = 4
+
+[node name="Spacer" type="Control" parent="TabContainer/Settings/TabContainer/Other/TabContainer/Filename/PanelContainer/VBoxContainer/Builder"]
+margin_left = 204.0
+margin_right = 214.0
+margin_bottom = 299.0
+rect_min_size = Vector2( 10, 0 )
+
+[node name="NextButton" type="Button" parent="TabContainer/Settings/TabContainer/Other/TabContainer/Filename/PanelContainer/VBoxContainer/Builder"]
+margin_left = 218.0
+margin_top = 139.0
+margin_right = 260.0
+margin_bottom = 159.0
+size_flags_vertical = 4
+text = "Next"
+
+[node name="Spacer2" type="Control" parent="TabContainer/Settings/TabContainer/Other/TabContainer/Filename/PanelContainer/VBoxContainer/Builder"]
+margin_left = 264.0
+margin_right = 274.0
+margin_bottom = 299.0
+rect_min_size = Vector2( 10, 0 )
+
+[node name="DeleteButton" type="Button" parent="TabContainer/Settings/TabContainer/Other/TabContainer/Filename/PanelContainer/VBoxContainer/Builder"]
+margin_left = 278.0
+margin_top = 139.0
+margin_right = 333.0
+margin_bottom = 159.0
+size_flags_vertical = 4
+text = "Delete"
+
+[node name="Spacer3" type="Control" parent="TabContainer/Settings/TabContainer/Other/TabContainer/Filename/PanelContainer/VBoxContainer/Builder"]
+margin_left = 337.0
+margin_right = 347.0
+margin_bottom = 299.0
+rect_min_size = Vector2( 10, 0 )
+
+[node name="ClearButton" type="Button" parent="TabContainer/Settings/TabContainer/Other/TabContainer/Filename/PanelContainer/VBoxContainer/Builder"]
+margin_left = 351.0
+margin_top = 139.0
+margin_right = 416.0
+margin_bottom = 159.0
+size_flags_vertical = 4
+text = "Clear All"
+
+[node name="Preview" type="Label" parent="TabContainer/Settings/TabContainer/Other/TabContainer/Filename/PanelContainer/VBoxContainer"]
+margin_top = 303.0
+margin_right = 1246.0
+margin_bottom = 602.0
+size_flags_vertical = 7
+align = 1
+valign = 1
 
 [node name="Testing" type="Tabs" parent="TabContainer"]
 visible = false
@@ -2433,6 +2518,9 @@ dialog_text = "You cannot have 0 players."
 [connection signal="toggled" from="TabContainer/Main/PanelContainer/VBoxContainer/PlayerLine2/Player2/Override/CheckBox" to="TabContainer/Main/PanelContainer/VBoxContainer/PlayerLine2/Player2" method="_on_CheckBox_toggled"]
 [connection signal="toggled" from="TabContainer/Main/PanelContainer/VBoxContainer/PlayerLine2/Player3/Override/CheckBox" to="TabContainer/Main/PanelContainer/VBoxContainer/PlayerLine2/Player3" method="_on_CheckBox_toggled"]
 [connection signal="toggled" from="TabContainer/Main/PanelContainer/VBoxContainer/PlayerLine2/Player4/Override/CheckBox" to="TabContainer/Main/PanelContainer/VBoxContainer/PlayerLine2/Player4" method="_on_CheckBox_toggled"]
+[connection signal="pressed" from="TabContainer/Settings/TabContainer/Other/TabContainer/Filename/PanelContainer/VBoxContainer/Builder/NextButton" to="TabContainer/Settings/TabContainer/Other/TabContainer/Filename" method="_on_NextButton_pressed"]
+[connection signal="pressed" from="TabContainer/Settings/TabContainer/Other/TabContainer/Filename/PanelContainer/VBoxContainer/Builder/DeleteButton" to="TabContainer/Settings/TabContainer/Other/TabContainer/Filename" method="_on_DeleteButton_pressed"]
+[connection signal="pressed" from="TabContainer/Settings/TabContainer/Other/TabContainer/Filename/PanelContainer/VBoxContainer/Builder/ClearButton" to="TabContainer/Settings/TabContainer/Other/TabContainer/Filename" method="_on_ClearButton_pressed"]
 [connection signal="pressed" from="TabContainer/Testing/Button" to="." method="_on_temp_Button_pressed"]
 [connection signal="text_entered" from="TabContainer/Testing/SendCommandInfo" to="." method="_on_SendCommandInfo_text_entered"]
 [connection signal="text_entered" from="TabContainer/Testing/OptionalLines" to="." method="_on_OptionalLines_text_entered"]

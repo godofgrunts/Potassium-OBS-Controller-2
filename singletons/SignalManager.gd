@@ -24,3 +24,5 @@ signal score_changed(obs_source, new_score)
 signal settings_changed(source, dict)
 # warning-ignore:unused_signal
 signal filename_array_changed(array)
+# warning-ignore:unused_signal
+signal rebuild_preview

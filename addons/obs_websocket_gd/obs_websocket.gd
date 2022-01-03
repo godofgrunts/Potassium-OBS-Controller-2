@@ -262,15 +262,15 @@ func break_connection() -> void:
 	obs_client.disconnect_from_host()
 
 func send_command(command: String, data: Dictionary = {}) -> void:
-	print("command is %s." % command)
-	print("data is %s" % data)
+	#print("command is %s." % command)
+	#print("data is %s" % data)
 	if waiting_for_response:
 		print("Still waiting for response for last command")
 		return
 	
 	data["request-type"] = command
 	data["message-id"] = _generate_message_id()
-	print(data)
+	#print(data)
 	obs_client.get_peer(1).put_packet(JSON.print(data).to_utf8())
 
 # Preconfigured commands

@@ -3,10 +3,7 @@ extends Node
 var json_file := "res://info.json"
 var user_json_file := "user://custom_info.json"
 var json_info
-var event_name : String = ""
-var shorthand_name : String = ""
-var round_name : String = ""
-var filename_array : Array = []
+
 
 
 func _ready() -> void:
@@ -18,3 +15,5 @@ func _ready() -> void:
 	var text = file.get_as_text()
 	json_info = parse_json(text)
 	file.close()
+
+
