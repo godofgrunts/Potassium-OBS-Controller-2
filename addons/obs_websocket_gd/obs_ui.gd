@@ -145,6 +145,7 @@ func _on_obs_updated(obs_data: Dictionary) -> void:
 			"RecordingStopped":
 				record.text = START_RECORDING
 				is_recording = false
+				_rename_file(obs_data["recordingFilename"])
 			"StreamingStarted":
 				stream.text = STOP_STREAMING
 				is_streaming = true
@@ -175,7 +176,7 @@ func _on_obs_updated(obs_data: Dictionary) -> void:
 		self.add_child(error_popup)
 		error_popup.popup_centered()
 		
-	print(obs_data)
+	#print(obs_data)
 
 func _on_obs_connected() -> void:
 	obs_websocket.get_scene_list()
@@ -186,7 +187,7 @@ func _on_refresh_data_pressed() -> void:
 	obs_websocket.get_scene_list()
 
 func _on_obs_scene_list_returned(data) -> void:
-	print(data)
+	#print(data)
 	current_scene = data.current_scene
 	
 	scene_data.clear()
@@ -251,6 +252,26 @@ func _create_source_button(button_name: String, button_render: bool) -> void:
 	source_button.connect("toggled", self, "_on_source_item_toggled", [button_name])
 	sources.call_deferred("add_child", source_button)
 
+func _rename_file(file_name):
+	var new_name = ""
+	var prev_word
+	for i in Settings.filename_array.size():
+		var next_word = Settings.filename_dict.get(Settings.filename_array[i])
+		if new_name == "":
+			new_name = next_word
+		else:
+			if prev_word == "[" or next_word == "]" or prev_word == "(" or next_word == ")":
+				new_name = new_name + next_word 
+			else:
+				new_name = new_name + " " + next_word
+		prev_word = next_word
+	print(new_name)
+	var new_file_location = file_name.get_base_dir() + "/" + new_name + "." + file_name.get_extension()
+	print(new_file_location)
+	var f = Directory.new()
+	var error = f.rename(file_name, new_file_location)
+	if error:
+		print("Error %s" % error)
 
 ###############################################################################
 # Public functions                                                            #
