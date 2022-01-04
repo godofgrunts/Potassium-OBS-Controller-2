@@ -36,15 +36,6 @@ func _ready() -> void:
 		json_file = user_json_file
 	file.close()
 	load_data()
-
-func load_data() -> void:
-	json_info.clear()
-	var file := File.new()
-# warning-ignore:return_value_discarded
-	file.open(json_file, file.READ)
-	var text = file.get_as_text()
-	file.close()
-	json_info = parse_json(text)
 	player_structure = json_info["players"]
 	obs_structure = json_info["obs"]
 	information_structure = json_info["information"]
@@ -58,6 +49,16 @@ func load_data() -> void:
 	filename_dict["round_name"] = round_name
 	filename_dict["game_name"] = game_name
 	filename_dict["game_type"] = game_type
+
+func load_data() -> void:
+	json_info.clear()
+	var file := File.new()
+# warning-ignore:return_value_discarded
+	file.open(json_file, file.READ)
+	var text = file.get_as_text()
+	file.close()
+	json_info = parse_json(text)
+
 
 func _on_settings_changed(source, dict) -> void:
 	_setting_loop(source, dict, player_structure)
