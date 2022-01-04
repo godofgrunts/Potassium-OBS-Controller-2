@@ -36,4 +36,4 @@ func _on_score_change_player1(index) -> void:
 
 func _on_score_change_player2(index) -> void:
 	var new_score = $Player2/OptionButton.get_item_index(index)
-	SignalManager.emit_signal("score_changed", "Player2Score", new_score)
+	SignalManager.emit_signal("score_changed", "Player2", new_score)

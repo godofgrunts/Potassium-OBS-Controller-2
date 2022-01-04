@@ -173,6 +173,8 @@ func _on_obs_updated(obs_data: Dictionary) -> void:
 				connect_button.text = CONNECT_TO_OBS
 				error_popup.dialog_text = "Unable to connect to OBS.\n\nIs OBS running and OBS Websocket installed?"
 				is_connection_established = false
+			_:
+				error_popup.dialog_text = "An unexpected error has occured.\n\nPlease open a ticket at https://github.com/godofgrunts/Potassium-OBS-Controller-2/issues \n\n %s" % obs_data
 		self.add_child(error_popup)
 		error_popup.popup_centered()
 		

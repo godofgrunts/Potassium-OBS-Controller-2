@@ -149,7 +149,7 @@ func _on_obs_updated(data) -> void:
 func _on_obs_connected() -> void:
 	print("connected")
 	
-func _on_obs_scene_list_returned() -> void:
+func _on_obs_scene_list_returned(data) -> void:
 	pass
 	
 
