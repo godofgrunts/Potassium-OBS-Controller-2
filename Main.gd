@@ -32,7 +32,12 @@ func _ready() -> void:
 	SignalManager.connect("score_changed", self, "_on_player_score_changed")
 	_on_NumberOfPlayers_item_selected(2)
 	SignalManager.emit_signal("main_ready", $ObsWebsocket)
-	
+	# warning-ignore:return_value_discarded
+	SignalManager.connect("com_name_changed", self, "_on_com_name_changed")
+	# warning-ignore:return_value_discarded
+	SignalManager.connect("com_soical_changed", self, "_on_com_social_changed")
+	# warning-ignore:return_value_discarded
+	SignalManager.connect("com_pronoun_changed", self, "_on_com_pronoun_changed")
 
 
 func _get_player_source_name(source, setting) -> String:
@@ -43,6 +48,14 @@ func _get_player_source_name(source, setting) -> String:
 			source_name = players[i].get(source).get(setting)
 	return source_name
 	
+func _get_com_source_name(source, setting) -> String:
+	var source_name
+	var coms = Settings.json_info["coms"]
+	for i in range(coms.size()):
+		if coms[i].has(source):
+			source_name = coms[i].get(source).get(setting)
+	return source_name
+	
 func _get_info_source_name(setting) -> String:
 	var source_name
 	for i in Settings.json_info["information"]:
@@ -50,6 +63,19 @@ func _get_info_source_name(setting) -> String:
 			source_name = i["Video"].get(setting)
 	return source_name
 			
+
+func _on_com_name_changed(source, text) -> void:
+	var source_name = _get_com_source_name(source, "obs_name")
+	Settings.com_names[source_name] = text
+	obs_websocket.send_command("SetSourceSettings", {"sourceName":source_name, "sourceSettings":{"text":text}})
+	
+func _on_com_social_changed(source, text) -> void:
+	var source_name = _get_com_source_name(source, "social")
+	obs_websocket.send_command("SetSourceSettings", {"sourceName":source_name, "sourceSettings":{"text":text}})
+
+func _on_com_pronoun_changed(source, text) -> void:
+	var source_name = _get_com_source_name(source, "pronouns")
+	obs_websocket.send_command("SetSourceSettings", {"sourceName":source_name, "sourceSettings":{"text":text}})
 
 func _on_player_name_changed(source, text) -> void:
 	var source_name = _get_player_source_name(source, "obs_name")

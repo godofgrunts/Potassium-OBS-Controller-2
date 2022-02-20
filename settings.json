@@ -99,5 +99,25 @@
 			"ip":"127.0.0.1",
 			"port":"4444"
 		}
-	]
+	],
+	"coms":
+	[
+		{
+			"Commentator1":
+			{
+				"obs_name":"Com1Name",
+				"pronouns":"Com1Pronouns",
+				"social":"Com1Social"
+			}
+		},
+		{
+			"Commentator2":
+			{
+				"obs_name":"Com2Name",
+				"pronouns":"Com2Pronouns",
+				"social":"Com2Social"
+			}
+		}
+	],
+	"version":"1.1.0"
 }

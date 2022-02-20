@@ -26,3 +26,9 @@ signal settings_changed(source, dict)
 signal filename_array_changed(array)
 # warning-ignore:unused_signal
 signal rebuild_preview
+# warning-ignore:unused_signal
+signal com_name_changed(obs_source, new_name)
+# warning-ignore:unused_signal
+signal com_pronoun_changed(obs_source, new_name)
+# warning-ignore:unused_signal
+signal com_social_changed(obs_source, new_name)

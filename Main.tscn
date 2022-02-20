@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://scripts/GameDropDown.gd" type="Script" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://scripts/PlayerSettings.gd" type="Script" id=10]
 [ext_resource path="res://scripts/Video.gd" type="Script" id=11]
 [ext_resource path="res://scripts/Filename.gd" type="Script" id=12]
+[ext_resource path="res://scripts/ComInfo.gd" type="Script" id=13]
+[ext_resource path="res://scripts/ComSettings.gd" type="Script" id=14]
 
 [node name="Main" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -1231,6 +1233,185 @@ margin_right = 1262.0
 rect_min_size = Vector2( 50, 0 )
 size_flags_horizontal = 3
 
+[node name="Commentators" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Commentators"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 10.0
+margin_right = 1.0
+margin_bottom = 10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Commentators/VBoxContainer"]
+margin_right = 1276.0
+margin_bottom = 134.0
+
+[node name="Padding5" type="Control" parent="TabContainer/Commentators/VBoxContainer/HBoxContainer2"]
+margin_bottom = 134.0
+rect_min_size = Vector2( 0, 1.676 )
+size_flags_horizontal = 2
+
+[node name="Commentator1" type="VBoxContainer" parent="TabContainer/Commentators/VBoxContainer/HBoxContainer2"]
+margin_left = 290.0
+margin_right = 490.0
+margin_bottom = 134.0
+script = ExtResource( 13 )
+
+[node name="Label" type="Label" parent="TabContainer/Commentators/VBoxContainer/HBoxContainer2/Commentator1"]
+margin_right = 200.0
+margin_bottom = 14.0
+text = "Commentator 1 Tag"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ComInput" type="LineEdit" parent="TabContainer/Commentators/VBoxContainer/HBoxContainer2/Commentator1"]
+margin_top = 18.0
+margin_right = 200.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 200, 24 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="TabContainer/Commentators/VBoxContainer/HBoxContainer2/Commentator1"]
+margin_top = 46.0
+margin_right = 200.0
+margin_bottom = 60.0
+text = "Social Media"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ComSocial" type="LineEdit" parent="TabContainer/Commentators/VBoxContainer/HBoxContainer2/Commentator1"]
+margin_top = 64.0
+margin_right = 200.0
+margin_bottom = 88.0
+rect_min_size = Vector2( 200, 24 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="TabContainer/Commentators/VBoxContainer/HBoxContainer2/Commentator1"]
+margin_top = 92.0
+margin_right = 200.0
+margin_bottom = 106.0
+text = "Pronouns"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ComPronouns" type="LineEdit" parent="TabContainer/Commentators/VBoxContainer/HBoxContainer2/Commentator1"]
+margin_top = 110.0
+margin_right = 200.0
+margin_bottom = 134.0
+rect_min_size = Vector2( 200, 24 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Padding7" type="Control" parent="TabContainer/Commentators/VBoxContainer/HBoxContainer2"]
+margin_left = 494.0
+margin_right = 494.0
+margin_bottom = 134.0
+rect_min_size = Vector2( 0, 1.676 )
+size_flags_horizontal = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Commentator2" type="VBoxContainer" parent="TabContainer/Commentators/VBoxContainer/HBoxContainer2"]
+margin_left = 785.0
+margin_right = 985.0
+margin_bottom = 134.0
+script = ExtResource( 13 )
+
+[node name="Label" type="Label" parent="TabContainer/Commentators/VBoxContainer/HBoxContainer2/Commentator2"]
+margin_right = 200.0
+margin_bottom = 14.0
+text = "Commentator 2 Tag"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ComInput" type="LineEdit" parent="TabContainer/Commentators/VBoxContainer/HBoxContainer2/Commentator2"]
+margin_top = 18.0
+margin_right = 200.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 200, 24 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="TabContainer/Commentators/VBoxContainer/HBoxContainer2/Commentator2"]
+margin_top = 46.0
+margin_right = 200.0
+margin_bottom = 60.0
+text = "Social Media"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ComSocial" type="LineEdit" parent="TabContainer/Commentators/VBoxContainer/HBoxContainer2/Commentator2"]
+margin_top = 64.0
+margin_right = 200.0
+margin_bottom = 88.0
+rect_min_size = Vector2( 200, 24 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="TabContainer/Commentators/VBoxContainer/HBoxContainer2/Commentator2"]
+margin_top = 92.0
+margin_right = 200.0
+margin_bottom = 106.0
+text = "Pronouns"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ComPronouns" type="LineEdit" parent="TabContainer/Commentators/VBoxContainer/HBoxContainer2/Commentator2"]
+margin_top = 110.0
+margin_right = 200.0
+margin_bottom = 134.0
+rect_min_size = Vector2( 200, 24 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerCharacterOverride" type="LineEdit" parent="TabContainer/Commentators/VBoxContainer/HBoxContainer2/Commentator2"]
+visible = false
+margin_top = 208.0
+margin_right = 200.0
+margin_bottom = 232.0
+
+[node name="Padding6" type="Control" parent="TabContainer/Commentators/VBoxContainer/HBoxContainer2"]
+margin_left = 989.0
+margin_right = 989.0
+margin_bottom = 134.0
+rect_min_size = Vector2( 0, 1.676 )
+size_flags_horizontal = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="OBS" type="Tabs" parent="TabContainer"]
 visible = false
 anchor_right = 1.0
@@ -1260,6 +1441,7 @@ __meta__ = {
 }
 
 [node name="Player1" type="Tabs" parent="TabContainer/Settings/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -2244,6 +2426,209 @@ margin_top = 84.0
 margin_right = 200.0
 margin_bottom = 108.0
 
+[node name="Commentator1" type="Tabs" parent="TabContainer/Settings/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = ExtResource( 14 )
+
+[node name="PanelContainer" type="PanelContainer" parent="TabContainer/Settings/TabContainer/Commentator1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 1268, 658 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Settings/TabContainer/Commentator1/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1261.0
+margin_bottom = 651.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/Settings/TabContainer/Commentator1/PanelContainer/VBoxContainer"]
+margin_right = 1254.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+text = "Edit these fields to match the source names in your OBS.
+
+For example, if your name source for Player 1 is \"Player 1 Name\" change the \"Name\" field to \"Player 1 Name\" without the quotes."
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Settings/TabContainer/Commentator1/PanelContainer/VBoxContainer"]
+margin_top = 54.0
+margin_right = 1254.0
+margin_bottom = 134.0
+
+[node name="Labels" type="VBoxContainer" parent="TabContainer/Settings/TabContainer/Commentator1/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_right = 60.0
+margin_bottom = 80.0
+
+[node name="Padding5" type="Control" parent="TabContainer/Settings/TabContainer/Commentator1/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_right = 60.0
+margin_bottom = 1.676
+rect_min_size = Vector2( 0, 1.676 )
+
+[node name="Label" type="Label" parent="TabContainer/Settings/TabContainer/Commentator1/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 5.0
+margin_right = 60.0
+margin_bottom = 19.0
+text = "Name "
+
+[node name="Padding3" type="Control" parent="TabContainer/Settings/TabContainer/Commentator1/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 23.0
+margin_right = 60.0
+margin_bottom = 29.403
+rect_min_size = Vector2( 0, 6.403 )
+
+[node name="Label4" type="Label" parent="TabContainer/Settings/TabContainer/Commentator1/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 33.0
+margin_right = 60.0
+margin_bottom = 47.0
+text = "Pronouns"
+
+[node name="Padding4" type="Control" parent="TabContainer/Settings/TabContainer/Commentator1/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 51.0
+margin_right = 60.0
+margin_bottom = 57.291
+rect_min_size = Vector2( 0, 6.291 )
+
+[node name="Label5" type="Label" parent="TabContainer/Settings/TabContainer/Commentator1/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 61.0
+margin_right = 60.0
+margin_bottom = 75.0
+text = "Social"
+
+[node name="Padding" type="Control" parent="TabContainer/Settings/TabContainer/Commentator1/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 64.0
+margin_right = 74.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 10, 0 )
+
+[node name="Inputs" type="VBoxContainer" parent="TabContainer/Settings/TabContainer/Commentator1/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 78.0
+margin_right = 278.0
+margin_bottom = 80.0
+
+[node name="obs_name" type="LineEdit" parent="TabContainer/Settings/TabContainer/Commentator1/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_right = 200.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="pronouns" type="LineEdit" parent="TabContainer/Settings/TabContainer/Commentator1/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_top = 28.0
+margin_right = 200.0
+margin_bottom = 52.0
+
+[node name="social" type="LineEdit" parent="TabContainer/Settings/TabContainer/Commentator1/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_top = 56.0
+margin_right = 200.0
+margin_bottom = 80.0
+
+[node name="Commentator2" type="Tabs" parent="TabContainer/Settings/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = ExtResource( 14 )
+
+[node name="PanelContainer" type="PanelContainer" parent="TabContainer/Settings/TabContainer/Commentator2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 1268, 658 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Settings/TabContainer/Commentator2/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1261.0
+margin_bottom = 651.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/Settings/TabContainer/Commentator2/PanelContainer/VBoxContainer"]
+margin_right = 1254.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+text = "Edit these fields to match the source names in your OBS.
+
+For example, if your name source for Player 1 is \"Player 1 Name\" change the \"Name\" field to \"Player 1 Name\" without the quotes."
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Settings/TabContainer/Commentator2/PanelContainer/VBoxContainer"]
+margin_top = 54.0
+margin_right = 1254.0
+margin_bottom = 134.0
+
+[node name="Labels" type="VBoxContainer" parent="TabContainer/Settings/TabContainer/Commentator2/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_right = 60.0
+margin_bottom = 80.0
+
+[node name="Padding5" type="Control" parent="TabContainer/Settings/TabContainer/Commentator2/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_right = 60.0
+margin_bottom = 1.676
+rect_min_size = Vector2( 0, 1.676 )
+
+[node name="Label" type="Label" parent="TabContainer/Settings/TabContainer/Commentator2/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 5.0
+margin_right = 60.0
+margin_bottom = 19.0
+text = "Name "
+
+[node name="Padding" type="Control" parent="TabContainer/Settings/TabContainer/Commentator2/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 23.0
+margin_right = 60.0
+margin_bottom = 29.537
+rect_min_size = Vector2( 0, 6.537 )
+
+[node name="Label4" type="Label" parent="TabContainer/Settings/TabContainer/Commentator2/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 33.0
+margin_right = 60.0
+margin_bottom = 47.0
+text = "Pronouns"
+
+[node name="Padding4" type="Control" parent="TabContainer/Settings/TabContainer/Commentator2/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 51.0
+margin_right = 60.0
+margin_bottom = 57.291
+rect_min_size = Vector2( 0, 6.291 )
+
+[node name="Label5" type="Label" parent="TabContainer/Settings/TabContainer/Commentator2/PanelContainer/VBoxContainer/HBoxContainer/Labels"]
+margin_top = 61.0
+margin_right = 60.0
+margin_bottom = 75.0
+text = "Social"
+
+[node name="Padding" type="Control" parent="TabContainer/Settings/TabContainer/Commentator2/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 64.0
+margin_right = 74.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 10, 0 )
+
+[node name="Inputs" type="VBoxContainer" parent="TabContainer/Settings/TabContainer/Commentator2/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 78.0
+margin_right = 278.0
+margin_bottom = 80.0
+
+[node name="obs_name" type="LineEdit" parent="TabContainer/Settings/TabContainer/Commentator2/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_right = 200.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="pronouns" type="LineEdit" parent="TabContainer/Settings/TabContainer/Commentator2/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_top = 28.0
+margin_right = 200.0
+margin_bottom = 52.0
+
+[node name="social" type="LineEdit" parent="TabContainer/Settings/TabContainer/Commentator2/PanelContainer/VBoxContainer/HBoxContainer/Inputs"]
+margin_top = 56.0
+margin_right = 200.0
+margin_bottom = 80.0
+
 [node name="Other" type="Tabs" parent="TabContainer/Settings/TabContainer"]
 visible = false
 anchor_right = 1.0
@@ -2497,6 +2882,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="AcceptDialog" type="AcceptDialog" parent="Container"]
+visible = true
 margin_right = 83.0
 margin_bottom = 58.0
 rect_min_size = Vector2( 500, 500 )

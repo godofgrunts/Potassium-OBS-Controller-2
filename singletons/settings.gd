@@ -1,5 +1,6 @@
 extends Node
 
+var version = "1.1.0"
 
 var json_file := "res://settings.json"
 var user_json_file := "user://custom_settings.json"
@@ -9,6 +10,7 @@ var temp_dict := {}
 var player_structure := []
 var information_structure := []
 var obs_structure := []
+var com_structure := []
 
 var event_name : String = "Event" setget _event_changed
 var shorthand_name : String = "ShortHand" setget _shorthand_changed
@@ -22,6 +24,7 @@ const RIGHT_PAR : String = ")"
 const VERSUS : String = "vs"
 var player_names : = {} setget _player_names_changed
 var player_characters : = {} setget _player_characters_changed
+var com_names : = {} setget _com_names_changed
 var filename_array : Array = []
 var filename_dict : = {"[":"[","]":"]","(":"(",")":")","vs":"vs","-":"-"}
 
@@ -33,11 +36,17 @@ func _ready() -> void:
 	SignalManager.connect("filename_array_changed", self, "_file_name_save_and_cleanup")
 	var file = File.new()
 	if file.file_exists(user_json_file):
-		json_file = user_json_file
+		file.open(user_json_file, file.READ)
+		var text = file.get_as_text()
+		var temp_info = parse_json(text)
+		if temp_info.has("version"):
+			if temp_info["version"] == version:
+				json_file = user_json_file
 	file.close()
 	load_data()
 	player_structure = json_info["players"]
 	obs_structure = json_info["obs"]
+	com_structure = json_info["coms"]
 	information_structure = json_info["information"]
 	filename_array = ((information_structure[1]).File.filename)
 	filename_dict["Player1Name"] = "Player1"
@@ -64,6 +73,7 @@ func _on_settings_changed(source, dict) -> void:
 	_setting_loop(source, dict, player_structure)
 	_setting_loop(source, dict, information_structure)
 	_setting_loop(source, dict, obs_structure)
+	_setting_loop(source, dict, com_structure)
 
 func _setting_loop(source, dict, array_to_check) -> void:
 	for i in range(array_to_check.size()):
@@ -76,6 +86,8 @@ func _set_json_array() -> void:
 	temp_dict["players"] = player_structure
 	temp_dict["information"] = information_structure
 	temp_dict["obs"] = obs_structure
+	temp_dict["coms"] = com_structure
+	temp_dict["version"] = version
 	_save_data(temp_dict)
 	
 func _save_data(dict) -> void:
@@ -119,6 +131,9 @@ func _player_names_changed(new_value) -> void:
 	if player_names.has("Player2Name"):
 		filename_dict["Player2Name"] = player_names.Player2Name
 	_file_name_save_and_cleanup()
+
+func _com_names_changed(new_value) -> void:
+	com_names = new_value
 
 func _player_characters_changed(new_value):
 	player_characters = new_value
